@@ -1,0 +1,41 @@
+// container
+.container {
+    min-height: 100vh;
+}
+
+// box shadow
+
+.box-shadow-custom {
+    box-shadow: $box-shadow;
+}
+
+// border radius
+
+.br-default {
+    border-radius: $border-radius-default;
+}
+
+.br-button {
+    border-radius: $border-radius-button !important;
+}
+
+.br-input {
+    border-radius: $border-radius-input !important;
+    input {
+        border-radius: $border-radius-input !important;
+    }
+}
+
+// background
+
+.bg-linear {
+    background: $bg-linear;
+}
+
+// display flex
+
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

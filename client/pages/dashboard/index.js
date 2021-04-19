@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import { useRouter } from "next/router";
-import { getMeApi } from "../api/user";
+import { getMeApi } from "../../api/user";
 
 function dashboard() {
     const [user, setUser] = useState(undefined);
@@ -50,7 +50,7 @@ function dashboard() {
                     />
                 </Menu>
             </nav>
-            <h1>Dashboard</h1>
+            {/* <h1>Dashboard</h1> */}
         </div>
     )
 }

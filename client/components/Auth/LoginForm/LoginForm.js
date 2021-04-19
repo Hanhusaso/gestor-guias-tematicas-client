@@ -29,9 +29,10 @@ export default function LoginForm(props) {
     });
 
     return (
-        <Form className="login-form" onSubmit={formik.handleSubmit} >
+        <Form className="login-form box-shadow-custom br-default" onSubmit={formik.handleSubmit} >
             <Form.Input
                 name="identifier"
+                className="br-input"
                 type="text"
                 placeholder="Usuario"
                 onChange={formik.handleChange}
@@ -40,6 +41,7 @@ export default function LoginForm(props) {
 
             <Form.Input
                 name="password"
+                className="br-input"
                 type="password"
                 placeholder="Contraseña"
                 onChange={formik.handleChange}
@@ -48,7 +50,7 @@ export default function LoginForm(props) {
 
             <div className="actions">
                 <div>
-                    <Button className="submit" type="submit" loading={loading}>
+                    <Button className="submit br-button" type="submit" loading={loading}>
                         Ingresar
                     </Button>
                 </div>
