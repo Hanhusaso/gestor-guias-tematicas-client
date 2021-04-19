@@ -1,0 +1,17 @@
+.login-form{
+    margin-top:30px;
+    width:15%;
+
+    .actions{
+        justify-content: space-between;
+
+        .ui.basic.button{
+            margin: 0;
+        }
+
+        .ui.button.submit{
+            margin-top: 15px;
+            margin-right: 10px !important;
+        }
+    }
+}

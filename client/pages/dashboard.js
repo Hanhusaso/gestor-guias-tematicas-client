@@ -1,14 +1,31 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
+import useAuth from "../hooks/useAuth";
+import { useRouter } from "next/router";
+import { getMeApi } from "../api/user";
 
 function dashboard() {
+    const [user, setUser] = useState(undefined);
+    const { auth, logout, setReloadUser } = useAuth();
+    const [tabs, setTabs] = useState(1);
+    const router = useRouter();
 
-    // state = { activeItem: 'home' }
+    useEffect(() => {
+        (async () => {
+          const response = await getMeApi(logout);
+          setUser(response || null);
+        })();
+    }, [auth]);
 
     
     // const { activeItem } = this.state
     
     const [activeItem, setActiveItem] = useState('home');
+    if (user === undefined) return null;
+    if (!auth && !user) {
+        router.replace("/");
+        return null;
+    }
 
     const handleItemClick = (e, { name }) => setActiveItem(name)
 
@@ -33,6 +50,7 @@ function dashboard() {
                     />
                 </Menu>
             </nav>
+            <h1>Dashboard</h1>
         </div>
     )
 }
