@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import jwtDecode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
+import { useRouter } from "next/router";
 import { setToken, getToken, removeToken } from "../api/token";
 
 import "../styles/globals.css";
@@ -13,6 +14,7 @@ import Router from "next/dist/next-server/lib/router/router";
 function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [ realoadUser, setReloadUser ] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const token = getToken();
@@ -40,7 +42,7 @@ function MyApp({ Component, pageProps }) {
     if(auth){
       removeToken();
       setAuth(null);
-      Router.push("/");
+      router.push("/");
     }
   };
 
