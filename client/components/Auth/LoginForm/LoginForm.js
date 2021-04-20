@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 import useAuth from "../../../hooks/useAuth";
 import { loginApi , resetPasswordApi } from "../../../api/user";
+import { Image } from "semantic-ui-react";
 
 export default function LoginForm(props) {
     const [loading, setLoading] = useState(false);
@@ -30,6 +31,8 @@ export default function LoginForm(props) {
 
     return (
         <Form className="login-form box-shadow-custom br-default" onSubmit={formik.handleSubmit} >
+            {/* <Image src="/logo-login.svg" alt="logo-dashboard" /> */}
+            <br/>
             <Form.Input
                 name="identifier"
                 className="br-input"

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guias",
+  "info": {
+    "name": "guia",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Nro": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "nombre": {
+      "type": "text"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "clasificacion": {
+      "type": "string"
+    }
+  }
+}
