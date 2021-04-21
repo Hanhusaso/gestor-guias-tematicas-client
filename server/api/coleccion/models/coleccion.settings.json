@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coleccions",
+  "info": {
+    "name": "coleccion",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "recurso": {
+      "type": "string"
+    },
+    "guia": {
+      "model": "guia"
+    }
+  }
+}

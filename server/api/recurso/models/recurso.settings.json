@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recursos",
+  "info": {
+    "name": "recurso"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "enlace": {
+      "type": "string"
+    },
+    "palabras_clave": {
+      "type": "json"
+    },
+    "autor": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    },
+    "tipo": {
+      "type": "string"
+    }
+  }
+}
