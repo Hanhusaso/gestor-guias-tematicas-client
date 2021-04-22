@@ -63,8 +63,10 @@ function dashboard() {
             <UserSidebar />
 
             <div className="dashboard__content">
-
-            <Menu className="five item">
+                <Menu>
+                    <h3 className="title">INGRESAR NUEVA GUÍA TEMÁTICA</h3>
+                </Menu>
+            {/* <Menu className="five item">
                     <Menu.Item 
                         className={classNames({
                             active: tabs === 1,
@@ -125,29 +127,9 @@ function dashboard() {
                 ): null}
                 {tabs == 5 ? (
                      <BaseDatos />
-                ): null}
+                ): null} */}
             </div>
-            {/* <nav className="menu-nav">
-                <Menu pointing secondary vertical>
-                    <Menu.Item
-                    name='home'
-                    active={activeItem === 'home'}
-                    onClick={handleItemClick}
-                    />
-                    <Menu.Item
-                    name='messages'
-                    active={activeItem === 'messages'}
-                    onClick={handleItemClick}
-                    />
-                    <Menu.Item
-                    name='friends'
-                    active={activeItem === 'friends'}
-                    onClick={handleItemClick}
-                    />
-                </Menu>
-                <button onClick={ logout }>Cerrar Sesion</button>
-            </nav> */}
-            {/* <h1>Dashboard</h1> */}
+            
         </div>
     )
 }
