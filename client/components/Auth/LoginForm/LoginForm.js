@@ -20,9 +20,11 @@ export default function LoginForm(props) {
             setLoading(true);
             const response = await loginApi(formData);
             if (response?.jwt) {
+                toast.success("Bienvenido");
                 login(response.jwt);
                 router.replace("/dashboard");
             } else {
+                console.log("csssss");
                 toast.error("El email y/o contraseña son incorrectos");
             }
             setLoading(false);
@@ -31,7 +33,7 @@ export default function LoginForm(props) {
 
     return (
         <Form className="login-form box-shadow-custom br-default" onSubmit={formik.handleSubmit} >
-            {/* <Image src="/logo-login.svg" alt="logo-dashboard" /> */}
+            <Image src="/login_logo.svg" alt="logo-dashboard" />
             <br/>
             <Form.Input
                 name="identifier"

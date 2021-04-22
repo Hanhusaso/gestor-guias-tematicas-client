@@ -29,6 +29,9 @@
     },
     "clasificacion": {
       "type": "string"
+    },
+    "estado": {
+      "type": "boolean"
     }
   }
 }

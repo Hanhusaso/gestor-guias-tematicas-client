@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import jwtDecode from "jwt-decode";
 import AuthContext from "../context/AuthContext";
 import { useRouter } from "next/router";
@@ -8,8 +8,7 @@ import { setToken, getToken, removeToken } from "../api/token";
 import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
 import '../sass/index.scss'
-import "react-toastify/dist/ReactToastify.css";
-import Router from "next/dist/next-server/lib/router/router";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
@@ -59,7 +58,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <AuthContext.Provider value = {authData}>
-      <Component {...pageProps}>
+      <Component {...pageProps}/>
         <ToastContainer
           position = "top-right"
           autoClose = {5000}
@@ -71,7 +70,6 @@ function MyApp({ Component, pageProps }) {
           draggable
           pauseOnHover
         />
-      </Component>
     </AuthContext.Provider>
   );
 }
