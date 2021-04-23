@@ -39,6 +39,16 @@
     // padding-right: 46px !important;
     padding-bottom: 60px !important;
 
+    &__padding {
+      padding-left: 50px!important;
+      padding-right: 50px!important;
+      padding-top: 30px!important;
+
+      &__extra{
+        padding-right: 15%;
+      }
+    }
+
     .ui.menu {
       border: none;
       // margin-bottom: 50px;
@@ -67,7 +77,7 @@
       color: #70191c;
       font-weight: bold;
       font-size: 18px;
-      margin-left: 50px;
+      // margin-left: 50px;
     }
 
     a {

@@ -12,6 +12,7 @@ import Revistas from "../../components/Dashboard/User/Content/Revistas";
 import Tesis from "../../components/Dashboard/User/Content/Tesis";
 import Enciclopedias from "../../components/Dashboard/User/Content/Enciclopedias";
 import BaseDatos from "../../components/Dashboard/User/Content/BaseDatos";
+import NuevaGuia from "../../components/Dashboard/Content/NuevaGuia/nuevaGuia";
 
 function dashboard() {
     const [user, setUser] = useState(undefined);
@@ -63,9 +64,9 @@ function dashboard() {
             <UserSidebar />
 
             <div className="dashboard__content">
-                <Menu>
-                    <h3 className="title">INGRESAR NUEVA GUÍA TEMÁTICA</h3>
-                </Menu>
+                <NuevaGuia />
+
+                
             {/* <Menu className="five item">
                     <Menu.Item 
                         className={classNames({
