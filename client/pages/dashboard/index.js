@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../api/user";
+import { getGuiasApi } from "../../api/guia";
 import UserSidebar from "../../components/Dashboard/User/Sidebar/UserSideBar";
 import Libros from "../../components/Dashboard/User/Content/Libros";
 import Revistas from "../../components/Dashboard/User/Content/Revistas";
@@ -16,6 +17,7 @@ import NuevaGuia from "../../components/Dashboard/Content/NuevaGuia/nuevaGuia";
 
 function dashboard() {
     const [user, setUser] = useState(undefined);
+    const [guias, setGuias] = useState([]);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
@@ -46,7 +48,12 @@ function dashboard() {
         })();
     }, [auth]);
 
-    
+    useEffect(() => {
+        (async () => {
+            const response = await getGuiasApi();
+            console.log(response);
+          })();
+    }, [])
     // const { activeItem } = this.state
     
     const [activeItem, setActiveItem] = useState('MIS GUIAS TEMÁTICAS');
