@@ -51,7 +51,6 @@ function dashboard() {
     useEffect(() => {
         (async () => {
             const response = await getGuiasApi();
-            console.log(response);
           })();
     }, [])
     // const { activeItem } = this.state
