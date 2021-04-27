@@ -22,7 +22,7 @@ export default function LoginForm(props) {
             if (response?.jwt) {
                 toast.success("Bienvenido");
                 login(response.jwt);
-                router.replace("/dashboard");
+                router.replace("/dashboard/guias");
             } else {
                 console.log("csssss");
                 toast.error("El email y/o contraseña son incorrectos");
