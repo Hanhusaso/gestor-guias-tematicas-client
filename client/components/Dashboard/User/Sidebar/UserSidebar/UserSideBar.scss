@@ -1,12 +1,11 @@
 .user-sidebar{
-    .px-15{
-        padding-left: 15%!important;
-        padding-right: 15%!important;
-    }
-    
-    .py-15px{
+    &__element{
         padding-top: 15px!important;
         padding-bottom: 15px!important;
+        padding-left: 15%!important;
+        padding-right: 15%!important;
+        cursor: pointer;
+        width: 100%;
     }
     
     .d-center {
@@ -20,8 +19,15 @@
     //     color: white;
     // }
 
-    .option:hover{
+    &__element:hover{
         background: #70191c;
         color: white;
     }
+
+    .select{
+        background: #70191c;
+        color: white;
+    }
+
+    
 }

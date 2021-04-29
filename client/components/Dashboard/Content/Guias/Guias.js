@@ -7,6 +7,7 @@ import useAuth from "../../../../hooks/useAuth";
 import classNames from "classnames";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../../../api/user";
+import Link from 'next/link';
 
 function Guias() {
     const [user, setUser] = useState(undefined);
@@ -52,9 +53,9 @@ function Guias() {
                         <Table.Cell>Publicada</Table.Cell>
                         <Table.Cell>Comunicación social</Table.Cell>
                         <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                        <Table.Cell> <Link href="/dashboard/guias/recursos"><Icon name="edit outline" size='large' className="pointer"></Icon></Link></Table.Cell>
+                        <Table.Cell> <Icon name="trash alternate outline" size='large' className="pointer"></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="share square" size='large' className="pointer"></Icon></Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
@@ -66,9 +67,9 @@ function Guias() {
                         <Table.Cell>Publicada</Table.Cell>
                         <Table.Cell>Comunicación social</Table.Cell>
                         <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="edit outline" size='large' className="pointer"></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="trash alternate outline" size='large' className="pointer"></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="share square" size='large' className="pointer"></Icon></Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
@@ -80,23 +81,9 @@ function Guias() {
                         <Table.Cell>Publicada</Table.Cell>
                         <Table.Cell>Comunicación social</Table.Cell>
                         <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
-                    </Table.Row>
-
-                    <Table.Row>
-                        {/* <Table.Cell>
-                        <Label ribbon>First</Label>
-                        </Table.Cell> */}
-                        <Table.Cell>0017</Table.Cell>
-                        <Table.Cell>02/02/20</Table.Cell>
-                        <Table.Cell>Publicada</Table.Cell>
-                        <Table.Cell>Comunicación social</Table.Cell>
-                        <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="edit outline" size='large' className="pointer"></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="trash alternate outline" size='large' className="pointer"></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="share square" size='large' className="pointer"></Icon></Table.Cell>
                     </Table.Row>
 
                 </Table.Body>
@@ -104,7 +91,7 @@ function Guias() {
                 <Table.Footer>
                     <Table.Row>
                         <Table.HeaderCell colSpan='8'>
-                        <Menu floated='right' pagination className="shadow-none">
+                        <Menu pagination className="shadow-none">
                             <Menu.Item as='a' icon>
                             <Icon name='chevron left' />
                             </Menu.Item>

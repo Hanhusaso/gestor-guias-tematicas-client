@@ -9,7 +9,6 @@ import { getMeApi } from "../../api/user";
 import UserSidebar from "../../components/Dashboard/User/Sidebar/UserSideBar";
 
 import NuevaGuia from "../../components/Dashboard/Content/NuevaGuia/nuevaGuia";
-import GuiaSeleccionada from "../../components/Dashboard/Content/GuiaSeleccionada/guiaSeleccionada";
 import Guias from '../../components/Dashboard/Content/Guias/guias';
 
 function dashboard() {
@@ -17,8 +16,8 @@ function dashboard() {
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
-    const prueba = useRouter();
-    console.log(prueba.query.index);
+    const ruta = useRouter();
+    console.log(ruta.query.index);
 
     useEffect(() => {
         (async () => {
@@ -46,14 +45,11 @@ function dashboard() {
 
             <div className="dashboard__content">
                 
-                
-                {/* <GuiaSeleccionada /> */}
-                
-                {prueba.query.index == "guias" ? (
+                {ruta.query.index == "guias" ? (
                     <Guias />
                 ): null}
 
-                {prueba.query.index == "crear-guia" ? (
+                {ruta.query.index == "crear-guia" ? (
                      <NuevaGuia />
                 ): null}
 

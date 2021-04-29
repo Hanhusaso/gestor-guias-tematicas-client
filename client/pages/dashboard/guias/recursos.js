@@ -3,17 +3,19 @@ import { Menu } from 'semantic-ui-react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from "next/router";
-import Libros from "../../User/Content/Libros";
-import Revistas from "../../User/Content/Revistas";
-import Tesis from "../../User/Content/Tesis";
-import Enciclopedias from "../../User/Content/Enciclopedias";
-import BaseDatos from "../../User/Content/BaseDatos";
-import useAuth from "../../../../hooks/useAuth";
+import Libros from "../../../components/Dashboard/Content/Libros"
+import Revistas from "../../../components/Dashboard/User/Content/Revistas";
+import Tesis from "../../../components/Dashboard/User/Content/Tesis";
+import Enciclopedias from "../../../components/Dashboard/User/Content/Enciclopedias";
+import BaseDatos from "../../../components/Dashboard/User/Content/BaseDatos";
+import useAuth from "../../../hooks/useAuth";
 import classNames from "classnames";
-import { Icon } from "semantic-ui-react";
-import { getMeApi } from "../../../../api/user";
+import { Icon, Button } from "semantic-ui-react";
+import { getMeApi } from "../../../api/user";
+import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
 
-function GuiaSeleccionada() {
+
+function Recursos() {
     const [user, setUser] = useState(undefined);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
@@ -38,6 +40,10 @@ function GuiaSeleccionada() {
         setTabs(5);
     };
 
+    const changeTabs6 = () => {
+        setTabs(6);
+    };
+
     useEffect(() => {
         (async () => {
           const response = await getMeApi(logout);
@@ -51,57 +57,82 @@ function GuiaSeleccionada() {
     // const [activeItem, setActiveItem] = useState('MIS GUIAS TEMÁTICAS');
 
     return (
-        <div>
-            <Menu>
+
+        <div className="dashboard resources">
+            <UserSidebar />
+
+            <div className="dashboard__content">
+            
+            <Menu className="resources__header">
                     <h3 className="title">GUÍA 001: BIOLOGÍA</h3>
+                    {/* <Button primary>Primary</Button> */}
             </Menu>
 
             <div className="dashboard__content__padding">
                 <h3>Recursos:</h3>
 
-                <Menu className="five item">
+                <Menu className="six item">
                             <Menu.Item 
                                 className={classNames({
                                     active: tabs === 1,
-                                })}
+                                })+" resources__item"}
                                 onClick={changeTabs1}
                             >
-                                <Icon name="book"/>
-                                <h4>Libros</h4>
+                                <Icon name="book" size='large'/>
+                                <h4 className="resources__item__name">Libros</h4>
                             </Menu.Item>
 
                             <Menu.Item  
                                 className={classNames({
                                     active: tabs === 2,
-                                })}
+                                })+" resources__item"}
                                 onClick={changeTabs2}
                             >
-                                <h4>Tesis</h4>
+                                <Icon name="graduation" size='large'/>
+                                <h4 className="resources__item__name">Tesis</h4>
                             </Menu.Item >
+
                             <Menu.Item  
                                 className={classNames({
                                     active: tabs === 3,
-                                })}
+                                })+" resources__item"}
                                 onClick={changeTabs3}
                             >
-                                <h4>Revistas</h4>
+                                <Icon name="file outline" size='large'/>
+                                <h4 className="resources__item__name">Revistas</h4>
                             </Menu.Item >
+
                             <Menu.Item  
                                 className={classNames({
                                     active: tabs === 4,
-                                })}
+                                })+" resources__item"}
                                 onClick={changeTabs4}
                             >
-                                <h4>Enciclopedias y diccionarios</h4>
+                                <h4 className="resources__item__name">Enciclopedias y diccionarios</h4>
                             </Menu.Item >
+
                             <Menu.Item  
                                 className={classNames({
                                     active: tabs === 5,
-                                })}
+                                })+" resources__item"}
                                 onClick={changeTabs5}
                             >
-                                <h4>Bases de Datos</h4>
+                                
+                                <Icon name="database" size='large'/>
+                                <h4 className="resources__item__name">Bases de Datos</h4>
                             </Menu.Item >
+
+                            <Menu.Item  
+                                className={classNames({
+                                    active: tabs === 6,
+                                })+" resources__item"}
+                                onClick={changeTabs6}
+                            >
+                                
+                                <Icon name="window restore outline" size='large'/>
+                                <h4 className="resources__item__name">Otros sitios web</h4>
+                            </Menu.Item >
+                            
                         </Menu>
 
                         {tabs == 1 ? (
@@ -123,7 +154,13 @@ function GuiaSeleccionada() {
                         ): null}
             </div>
         </div>
+
+        </div>
+            
+        
+
+       
     )
 }
 
-export default GuiaSeleccionada
+export default Recursos
