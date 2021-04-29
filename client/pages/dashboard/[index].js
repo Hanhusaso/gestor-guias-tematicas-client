@@ -50,7 +50,7 @@ function dashboard() {
                 ): null}
 
                 {ruta.query.index == "crear-guia" ? (
-                     <NuevaGuia />
+                     <NuevaGuia auth={auth}/>
                 ): null}
 
             </div>

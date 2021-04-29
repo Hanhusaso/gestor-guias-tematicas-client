@@ -54,6 +54,24 @@ export async function getMeApi(logout) {
       return null;
     }
   }
+
+export async function getUser(idUser) {
+    try {
+      const url = `${BASE_PATH}/users/${idUser}`;
+      const params = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const response = await fetch(url, params);
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      return null;
+    }
+  }
   
   export async function updateNameApi(idUser, data, logout) {
     try {

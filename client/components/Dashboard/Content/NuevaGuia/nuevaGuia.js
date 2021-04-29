@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { createGuiasApi } from '../../../../api/guia';
 
-function NuevaGuia() {
+function NuevaGuia(props) {
+    const { auth } = props;
     const initialValues = {
         clasificacion: '',
         nombre: '',
-        sobre: ''
+        descripcion: '',
+        fecha: new Date(),
+        estado: false,
+        usuario: auth.idUser
     }
 
     const onSubmit = values => {
         console.log('Form data', values)
+        console.log(values.usuario);
+        // values.usuario = user
+        createGuiasApi(values);
     }
 
     const validate = values => {
@@ -26,7 +34,7 @@ function NuevaGuia() {
     const validationSchema = Yup.object({
         clasificacion: Yup.string().required('Requerido'),
         nombre: Yup.string().required('Requerido'),
-        sobre: Yup.string().required('Requerido'),
+        descripcion: Yup.string().required('Requerido'),
         // email: Yup.string().email('Invalid email format').required('Required'),
 
     })
@@ -80,12 +88,12 @@ function NuevaGuia() {
 
                         <div className="input-main">
                             <label className="input-main__label">
-                                <h4>Sobre esta guía temática:</h4>
+                                <h4>descripcion esta guía temática:</h4>
                             </label>
                             <div className="input-main__input">
-                                <input className="input-main__input__into" type='text' id='sobre' name="sobre" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.sobre} />   
-                                {formik.errors.sobre ? ( 
-                                <div>{formik.errors.sobre}</div> ) : null}
+                                <input className="input-main__input__into" type='text' id='descripcion' name="descripcion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.descripcion} />   
+                                {formik.errors.descripcion ? ( 
+                                <div>{formik.errors.descripcion}</div> ) : null}
                                 {/* <FormikControl
                                             control='input'
                                             name='telefono'
@@ -94,7 +102,7 @@ function NuevaGuia() {
                             
                         </div>
                         <div className="d-center">
-                            <button className="form__button">Continuar</button>
+                            <button type="submit    "className="form__button">Continuar</button>
                         </div>  
                     </form>
                 </div>
