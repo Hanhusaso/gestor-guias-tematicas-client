@@ -6,6 +6,7 @@ import { map, size } from "lodash";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../../../api/user";
 import { getGuiasApi } from '../../../../api/guia';
+import Link from 'next/link';
 
 function Guias() {
     const [user, setUser] = useState(undefined);
@@ -68,9 +69,14 @@ function Guias() {
                             {/* <Table.Cell>{guia.estado}</Table.Cell> */}
                             {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
-                            <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
+                            <Table.Cell> 
+                                <Link href="/dashboard/guias/recursos">
+                                    <Icon name="edit outline" size='large'></Icon>
+                                </Link>
+                            </Table.Cell>
                             <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                            <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                            <Table.Cell> 
+                                <Icon name="share square" size='large'></Icon></Table.Cell>
                         </Table.Row>
                     ))
 
