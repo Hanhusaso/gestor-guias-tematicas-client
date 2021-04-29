@@ -20,11 +20,10 @@ export default function LoginForm(props) {
             setLoading(true);
             const response = await loginApi(formData);
             if (response?.jwt) {
-                toast.success("Bienvenido");
+                toast.success(`Bienvenido ${response.user.name} ${response.user.lastname}`);
                 login(response.jwt);
                 router.replace("/dashboard/guias");
             } else {
-                console.log("csssss");
                 toast.error("El email y/o contraseña son incorrectos");
             }
             setLoading(false);

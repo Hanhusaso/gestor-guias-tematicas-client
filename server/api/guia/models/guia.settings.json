@@ -20,7 +20,7 @@
     "nombre": {
       "type": "text"
     },
-    "users_permissions_user": {
+    "usuario": {
       "plugin": "users-permissions",
       "model": "user"
     },
