@@ -18,7 +18,6 @@ function dashboard() {
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
     const prueba = useRouter();
-    console.log(prueba.query.index);
 
     useEffect(() => {
         (async () => {
@@ -54,7 +53,7 @@ function dashboard() {
                 ): null}
 
                 {prueba.query.index == "crear-guia" ? (
-                     <NuevaGuia />
+                     <NuevaGuia auth={auth}/>
                 ): null}
 
             </div>

@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { Label, Menu, Table } from 'semantic-ui-react'
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { useRouter } from "next/router";
 import useAuth from "../../../../hooks/useAuth";
-import classNames from "classnames";
+import { map, size } from "lodash";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../../../api/user";
+import { getGuiasApi } from '../../../../api/guia';
 
 function Guias() {
     const [user, setUser] = useState(undefined);
+    const [guias, setGuias] = useState([]);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
     
+
+    useEffect(() => {
+        (async () => {
+          const response = await getGuiasApi();
+          console.log(response);
+          setGuias(response);
+        })();
+    }, []);
+
     useEffect(() => {
         (async () => {
           const response = await getMeApi(logout);
@@ -43,38 +52,31 @@ function Guias() {
                 </Table.Header>
 
                 <Table.Body>
-                    <Table.Row>
-                        {/* <Table.Cell>
-                        <Label ribbon>First</Label>
-                        </Table.Cell> */}
-                        <Table.Cell>0017</Table.Cell>
-                        <Table.Cell>02/02/20</Table.Cell>
-                        <Table.Cell>Publicada</Table.Cell>
-                        <Table.Cell>Comunicación social</Table.Cell>
-                        <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
-                    </Table.Row>
+                    { guias.map((guia, index) =>(
+                        <Table.Row key={index}>
+                            <Table.Cell>{index}</Table.Cell>
+                            <Table.Cell>{guia.fecha}</Table.Cell>
+                            <Table.Cell>-</Table.Cell>
+                            <Table.Cell>{guia.nombre}</Table.Cell>
+                            <Table.Cell>-</Table.Cell>
+                            {/* { {guia,estado} ? (
+                                <Table.Cell>Publicado</Table.Cell>
+                                ):(
+                                    <Table.Cell>Guardado</Table.Cell>
+                                )
+                            } */}
+                            {/* <Table.Cell>{guia.estado}</Table.Cell> */}
+                            {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
+                            {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
+                            <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
+                            <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
+                            <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                        </Table.Row>
+                    ))
 
-                    <Table.Row>
-                        {/* <Table.Cell>
-                        <Label ribbon>First</Label>
-                        </Table.Cell> */}
-                        <Table.Cell>0017</Table.Cell>
-                        <Table.Cell>02/02/20</Table.Cell>
-                        <Table.Cell>Publicada</Table.Cell>
-                        <Table.Cell>Comunicación social</Table.Cell>
-                        <Table.Cell>Juan Vallovar</Table.Cell>
-                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
-                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
-                    </Table.Row>
+                    }
 
-                    <Table.Row>
-                        {/* <Table.Cell>
-                        <Label ribbon>First</Label>
-                        </Table.Cell> */}
+                    {/* <Table.Row>
                         <Table.Cell>0017</Table.Cell>
                         <Table.Cell>02/02/20</Table.Cell>
                         <Table.Cell>Publicada</Table.Cell>
@@ -83,12 +85,9 @@ function Guias() {
                         <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
                         <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
                         <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
-                    </Table.Row>
+                    </Table.Row> */}
 
-                    <Table.Row>
-                        {/* <Table.Cell>
-                        <Label ribbon>First</Label>
-                        </Table.Cell> */}
+                    {/* <Table.Row>
                         <Table.Cell>0017</Table.Cell>
                         <Table.Cell>02/02/20</Table.Cell>
                         <Table.Cell>Publicada</Table.Cell>
@@ -97,7 +96,18 @@ function Guias() {
                         <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
                         <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
                         <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
-                    </Table.Row>
+                    </Table.Row> */}
+
+                    {/* <Table.Row>
+                        <Table.Cell>0017</Table.Cell>
+                        <Table.Cell>02/02/20</Table.Cell>
+                        <Table.Cell>Publicada</Table.Cell>
+                        <Table.Cell>Comunicación social</Table.Cell>
+                        <Table.Cell>Juan Vallovar</Table.Cell>
+                        <Table.Cell> <Icon name="edit outline" size='large'></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
+                        <Table.Cell> <Icon name="share square" size='large'></Icon></Table.Cell>
+                    </Table.Row> */}
 
                 </Table.Body>
 
