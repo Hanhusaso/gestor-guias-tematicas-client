@@ -3,21 +3,23 @@ import { Menu } from 'semantic-ui-react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { createGuiasApi } from '../../../../api/guia';
-import { getMeApi } from '../../../../api/user';
 
-function NuevaGuia() {
-    const { login } = useAuth();
+function NuevaGuia(props) {
+    const { auth } = props;
     const initialValues = {
         clasificacion: '',
         nombre: '',
         descripcion: '',
         fecha: new Date(),
         estado: false,
+        usuario: auth.idUser
     }
 
     const onSubmit = values => {
-        console.log('Form data', values)//
-        //createGuiasApi(values);
+        console.log('Form data', values)
+        console.log(values.usuario);
+        // values.usuario = user
+        createGuiasApi(values);
     }
 
     const validate = values => {

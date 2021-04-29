@@ -27,6 +27,7 @@ export async function createGuiasApi(formData){
         const response = await fetch(url, params);
         const result = response.json();
         toast.success(`Nueva guía creada`);
+        return result;
     } catch (error) {
         
     }
