@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
-import Guia from "../../components/Dashboard/Content/guia";
 import useAuth from "../../hooks/useAuth";
 import classNames from "classnames";
 import { useRouter } from "next/router";

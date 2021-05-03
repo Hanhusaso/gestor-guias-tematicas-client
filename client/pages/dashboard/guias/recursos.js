@@ -4,15 +4,16 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useRouter } from "next/router";
 import Libros from "../../../components/Dashboard/Content/Libros"
-import Revistas from "../../../components/Dashboard/User/Content/Revistas";
-import Tesis from "../../../components/Dashboard/User/Content/Tesis";
-import Enciclopedias from "../../../components/Dashboard/User/Content/Enciclopedias";
-import BaseDatos from "../../../components/Dashboard/User/Content/BaseDatos";
+import Tesis from "../../../components/Dashboard/Content/Tesis";
+import Revistas from "../../../components/Dashboard/Content/Revistas";
+import Enciclopedias from "../../../components/Dashboard/Content/Enciclopedias";
+import BaseDatos from "../../../components/Dashboard/Content/BaseDatos";
 import useAuth from "../../../hooks/useAuth";
 import classNames from "classnames";
 import { Icon, Button } from "semantic-ui-react";
 import { getMeApi } from "../../../api/user";
 import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
+import OtrosSitios from '../../../components/Dashboard/Content/OtrosSitios';
 
 
 function Recursos() {
@@ -140,17 +141,20 @@ function Recursos() {
                         ): null}
 
                         {tabs == 2 ? (
-                            <Revistas />
+                            <Tesis />
                         ): null}
 
                         {tabs == 3 ? (
-                            <Tesis />
+                            <Revistas />
                         ): null}
                         {tabs == 4 ? (
                             <Enciclopedias />
                         ): null}
                         {tabs == 5 ? (
                             <BaseDatos />
+                        ): null}
+                        {tabs == 6 ? (
+                            <OtrosSitios />
                         ): null}
             </div>
         </div>
