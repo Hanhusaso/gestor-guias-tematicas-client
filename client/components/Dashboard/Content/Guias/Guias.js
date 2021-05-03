@@ -69,14 +69,14 @@ function Guias() {
                             {/* <Table.Cell>{guia.estado}</Table.Cell> */}
                             {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
-                            <Table.Cell> 
+                            <Table.Cell > 
                                 <Link href="/dashboard/guias/recursos">
-                                    <Icon name="edit outline" size='large'></Icon>
+                                    <Icon name="edit outline" className="pointer" size='large'></Icon>
                                 </Link>
                             </Table.Cell>
-                            <Table.Cell> <Icon name="trash alternate outline" size='large'></Icon></Table.Cell>
+                            <Table.Cell> <Icon name="trash alternate outline" className="pointer" size='large'></Icon></Table.Cell>
                             <Table.Cell> 
-                                <Icon name="share square" size='large'></Icon></Table.Cell>
+                                <Icon name="share square" className="pointer" size='large'></Icon></Table.Cell>
                         </Table.Row>
                     ))
 
