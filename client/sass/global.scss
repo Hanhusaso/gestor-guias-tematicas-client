@@ -44,6 +44,10 @@
     display: flex;
 }
 
+.d-inline-flex{
+    display: inline-flex;
+}
+
 .flex-column{
     flex-direction: column;
 }
@@ -59,6 +63,10 @@
 
 .text-center{
     text-align: center!important;
+}
+
+.justify-between{
+    justify-content: space-between;
 }
 
 .pointer{

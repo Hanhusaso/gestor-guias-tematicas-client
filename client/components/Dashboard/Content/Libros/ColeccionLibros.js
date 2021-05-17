@@ -9,17 +9,17 @@ export default function ColeccionLibros(props) {
     const {edit, setEdit} = props;
     const openEdit = () => setEdit(true);
 
-    const [showModal, setShowModal] = React.useState(false);
-    const openShowModal = () => { setShowModal(true)}
+    const [showModal, setShowModalLibro] = React.useState(false);
+    const openShowModalLibro = () => { setShowModalLibro(true)}
 
-    const [showModal2, setShowModal2] = React.useState(false);
-    const openShowModal2 = () => { setShowModal2(true)}
+    const [showModal2, setShowModalLibro2] = React.useState(false);
+    const openShowModalLibro2 = () => { setShowModalLibro2(true)}
     
     return (
         <div className="colections padding-top-46">
             <div className="colections__header">
                 <h3 className="colections__header__title">COLECCIONES</h3>
-                <div className="colections__header__button" onClick={openShowModal}><Icon name="add circle"/> <h3 className="colections__header__create">Crear Colección</h3></div>     
+                <div className="colections__header__button" onClick={openShowModalLibro}><Icon name="add circle"/> <h3 className="colections__header__create">Crear Colección</h3></div>     
             </div>
 
             <div className="colections__content container-30 padding-top-46">
@@ -30,7 +30,7 @@ export default function ColeccionLibros(props) {
                             Editar
                         </div>
                     </div>
-                    <Icon name="trash alternate outline" size='large' onClick={openShowModal2}/>
+                    <Icon name="trash alternate outline" size='large' onClick={openShowModalLibro2}/>
                 </div>
 
                 <div className="colections__content__element padding-bottom-25">
@@ -40,13 +40,13 @@ export default function ColeccionLibros(props) {
                             Editar
                         </div>
                     </div>
-                    <Icon name="trash alternate outline" size='large' onClick={openShowModal2}/>
+                    <Icon name="trash alternate outline" size='large' onClick={openShowModalLibro2}/>
                 </div>
             </div>
 
-            <CreateColectionModal show = {showModal} setShow={setShowModal} />
+            <CreateColectionModal show = {showModal} setShow={setShowModalLibro} />
 
-            <DeleteColectionModal show2 = {showModal2} setShow2={setShowModal2} />
+            <DeleteColectionModal show2 = {showModal2} setShow2={setShowModalLibro2} />
         </div>
     )
 }

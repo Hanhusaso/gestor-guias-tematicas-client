@@ -19,18 +19,23 @@ export default function ColeccionLibros(props) {
     const initialValues = {
         nombre: '',
         descripcion: '',
+        
         recurso: [{
             titulo: '',
             enlace: '',
-            autor: ''
+            autor: '',
+            descargar: false,
+            tipo: '',
+            fecha: null,
         }],
-        fecha: null,
-        tipo: ''
+        
+        
+        // tipo: '',
     }
 
     const tipos = [
         { key: '', value: '' },
-        { key: 'Option 1', value: 'option1' },
+        { key: 'Recursos electrónicos', value: 'option1' },
         { key: 'Option 2', value: 'option2' },
         { key: 'Option 3', value: 'option3' }
     ]
@@ -38,6 +43,7 @@ export default function ColeccionLibros(props) {
 
     const onSubmit = (values) => {
         console.log('Form data', values)
+        // console.log("purbea")
     }
 
     const validationSchema = Yup.object({
@@ -98,11 +104,7 @@ export default function ColeccionLibros(props) {
                                     name='descripcion'
                                 />
 
-                            </div>
-
-                            
-
-                            
+                            </div>                        
                                 
                                 <FieldArray name='recurso'>
                                 {fieldArrayProps => {
@@ -140,9 +142,15 @@ export default function ColeccionLibros(props) {
                                                                 label='Enlace del recurso:' 
                                                                 name={`recurso[${index}].enlace`}
                                                             />
-                                                            
                                                         </div>
                                                         
+                                                        <div className="margin-bottom-20">
+                                                            <label className="d-inline-flex label-auto" style={{marginLeft: '200px'}}>
+                                                                <Field type="checkbox" name={`recurso[${index}].descargar`} />
+                                                                <p className="m-0">Disponible para descargar</p>
+                                                            </label>
+                                                        </div>
+
                                                         <div className="margin-bottom-20">
                                                             <FormikControl 
                                                                 control='input' 
@@ -153,11 +161,11 @@ export default function ColeccionLibros(props) {
                                                             
                                                         </div>
 
-                                                        <div className="d-flex">
+                                                        <div className="d-flex justify-between">
                                                             <div className="margin-bottom-30">
                                                                 <FormikControl 
                                                                     control='date' 
-                                                                    className='input-edit'
+                                                                    className='input-edit input-auto'
                                                                     label='Fecha de publicación:' 
                                                                     name={`recurso[${index}].fecha`}
                                                                 />
@@ -167,9 +175,9 @@ export default function ColeccionLibros(props) {
                                                             <div>
                                                                 <FormikControl 
                                                                     control='select'
-                                                                    className='input-edit'
+                                                                    className='input-edit label-auto'
                                                                     label='Tipo:' 
-                                                                    name='tipo' 
+                                                                    name={`recurso[${index}].tipo`}
                                                                     options={tipos}
                                                                 />
                                                             </div>
