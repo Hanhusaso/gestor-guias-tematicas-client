@@ -1,0 +1,50 @@
+.content{
+    padding: 0!important;
+}
+
+.delete-colection-modal{
+    //Modal
+    border-radius: 20px!important;
+    // border-top-left-radius: 20px!important;
+    // border-top-right-radius: 20px!important;
+    background-color: #E5E5E5!important;
+    text-align: center;
+
+    &__content{
+        text-align: center;
+        // padding-top: 4%;
+        // padding-bottom: 4%;
+
+        h2{
+            margin-bottom: 6%;
+        }
+
+        &__buttons{
+            display: flex;
+            justify-content: space-evenly;
+            // justify-content: space-around;
+
+            .button{
+                background-color: #70191c;
+                border-radius: 25px;
+                font-size: 16px;
+                // padding-right: 6%;
+                // padding-left: 6%;
+                padding-top: 2.5%;
+                padding-bottom: 2.5%;
+                width: 35%;
+                color: white;
+                // font-size: 18px;
+            }
+
+            .button:hover{
+                background-color: #f9f6f6;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+
+    .content{
+        border-radius: 20px!important;
+    }
+}

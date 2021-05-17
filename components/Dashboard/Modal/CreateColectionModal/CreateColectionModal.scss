@@ -1,46 +1,39 @@
-.colections{
-    .colections__header{
-        display: flex;
-        // margin-top: 40px;
-        // margin-bottom: 20px;
+.create-colection-modal{
+    //Modal
+    border-radius: 20px!important;
+    background-color: #E5E5E5!important;
 
-        &__title{
-            margin: 0;
-            padding-right: 30px;
-        }
-
-        &__button{
-            margin: 0;
-            display: flex;
-            cursor: pointer;
-        }
-    
-        &__create{
-            margin:0;
-            font-weight: initial!important;
-        }
+    .content{
+        padding: 0!important;
     }
 
-    .colections__content{
+    .modal__content{
+        border-radius: 15px!important;
+        padding-left: 5%;
+        padding-right: 5%;
         
         &__element{
+            
             display: flex;
             align-items: center;
-            // margin-top: 25px;
-            // margin-bottom: 25px;
+            margin-top: 45px;
+            margin-bottom: 45px;
+            margin-left: 20px;
+            margin-right: 20px;
+
             &__box{
+                background-color: white;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 // border: 1px solid black;
-                // box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
-                box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
-                padding-top: 15px;
-                padding-bottom: 15px;
-                // padding-left: 5%;
-                // padding-right: 5%;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 5%;
+                padding-right: 5%;
                 margin-right: 10px;
-                border-radius: 20px;
+                border-radius: 15px;
                 width: 100%;
                 max-width: 1000px;
                 &__button{
@@ -56,18 +49,20 @@
                 }
 
                 &__newcolection{
-                    width: 80%;
-
+                    width: 100%;
+                    
                     &__box{
                             display: flex;
                             align-items: center;
-                            
+                            justify-content: space-between;
+
                         &__input{
                             display: flex;
                             align-items: center;
                             // justify-content: center;
                             margin: 0!important;
-                            
+                            width: 100%;
+
                             input{
                                 width: 60%;
                                 border: none!important;
@@ -89,7 +84,26 @@
         }
     }
 
-    
+
+    // .header {
+    //     border-bottom: none!important;
+    //     border-radius: 20px!important;
+    //     background-color: #E5E5E5!important;
+    // }
+
+    .close {
+        color:rgba(0,0,0,.87)!important;
+        top: 0!important;
+        right: 0!important;
+        font-size: 1.1em!important;
+    }
+
+    .content{
+        padding-left: 1.5rem!important;
+        padding-right: 1.5rem!important;
+        padding-top: 0!important;
+        padding-bottom: 0!important;
+        background-color: #E5E5E5!important;
+    }
+
 }
-
-

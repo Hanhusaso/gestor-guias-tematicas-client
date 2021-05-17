@@ -64,13 +64,13 @@ function Recursos() {
 
             <div className="dashboard__content">
             
-            <Menu className="resources__header">
+            <Menu className="container-46 padding-bottom-30 padding-top-46">
                     <h3 className="title">GUÍA 001: BIOLOGÍA</h3>
                     {/* <Button primary>Primary</Button> */}
             </Menu>
 
-            <div className="dashboard__content__padding">
-                <h3>Recursos:</h3>
+            <div className="container-46 padding-top-46">
+                <h3 className="m-0 padding-bottom-46">Recursos:</h3>
 
                 <Menu className="six item">
                             <Menu.Item 
