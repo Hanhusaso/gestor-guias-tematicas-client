@@ -18,6 +18,7 @@ import OtrosSitios from '../../../components/Dashboard/Content/OtrosSitios';
 
 function Recursos() {
     const [user, setUser] = useState(undefined);
+    // const [user, setUser] = useState(undefined);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();

@@ -8,7 +8,7 @@ import { getMeApi } from "../../../../api/user";
 import { getGuiasApi } from '../../../../api/guia';
 import Link from 'next/link';
 
-const limitPerPage = 3;
+const limitPerPage = 50;
 
 function Guias() {
     const [user, setUser] = useState(undefined);
@@ -73,7 +73,7 @@ function Guias() {
                             {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
                             <Table.Cell > 
-                                <Link href="/dashboard/guias/recursos">
+                                <Link href={`/dashboard/guias/${guia.nombre}`}>
                                     <Icon name="edit outline" className="pointer" size='large'></Icon>
                                 </Link>
                             </Table.Cell>
