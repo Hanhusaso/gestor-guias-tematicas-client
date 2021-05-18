@@ -8,9 +8,12 @@ import { getMeApi } from "../../../../api/user";
 import { getGuiasApi } from '../../../../api/guia';
 import Link from 'next/link';
 
+const limitPerPage = 50;
+
 function Guias() {
     const [user, setUser] = useState(undefined);
     const [guias, setGuias] = useState([]);
+    const [totalGuias, setTotalGuias] = useState(null);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
@@ -18,7 +21,7 @@ function Guias() {
 
     useEffect(() => {
         (async () => {
-          const response = await getGuiasApi();
+          const response = await getGuiasApi(limitPerPage,0);
           console.log(response);
           setGuias(response);
         })();
@@ -70,7 +73,7 @@ function Guias() {
                             {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
                             <Table.Cell > 
-                                <Link href="/dashboard/guias/recursos">
+                                <Link href={`/dashboard/guias/${guia.nombre}`}>
                                     <Icon name="edit outline" className="pointer" size='large'></Icon>
                                 </Link>
                             </Table.Cell>

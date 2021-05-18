@@ -26,7 +26,6 @@ function RadioButtons(props) {
                 </Field>
                 <ErrorMessage name={name} component={TextError}/>
             </div>
-            
         </div>
     )
 

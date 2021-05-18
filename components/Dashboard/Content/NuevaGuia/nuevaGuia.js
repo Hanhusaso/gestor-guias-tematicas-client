@@ -128,7 +128,9 @@ function NuevaGuia(props) {
                                         
                                     </div>
                                     <div className="d-center padding-top-46">
-                                        <button type="submit" className="form__button">Continuar</button>
+                                        {/* <Link href={`/dashboard/guias/${guia.id}`}> */}
+                                            <button type="submit" className="form__button">Continuar</button>
+                                        {/* </Link> */}
                                     </div>  
                                 {/* </form> */}
                             </div>
