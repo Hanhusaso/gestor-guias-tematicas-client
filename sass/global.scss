@@ -40,6 +40,14 @@
     justify-content: center;
 }
 
+.d-flex{
+    display: flex;
+}
+
+.d-inline-flex{
+    display: inline-flex;
+}
+
 .flex-column{
     flex-direction: column;
 }
@@ -48,13 +56,17 @@
     padding-top: 15px!important;
 }
 
-h4 {
-    font-size: 16px;
-    font-weight: initial;
-}
+// h4 {
+//     font-size: 16px;
+//     font-weight: initial;
+// }
 
 .text-center{
     text-align: center!important;
+}
+
+.justify-between{
+    justify-content: space-between;
 }
 
 .pointer{
@@ -66,5 +78,60 @@ h4 {
 }
 
 .m-0{
-    margin:0;
+    margin: 0!important;
+}
+
+.container-61{
+    padding-left: 61px;
+    padding-right: 61px;
+}
+
+.container-46{
+    padding-right: 46px;
+    padding-left: 46px;
+}
+
+.container-30{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.padding-top-46{
+    padding-top: 46px!important;
+}
+
+.padding-bottom-46{
+    padding-bottom: 46px!important;
+}
+
+.padding-top-30{
+    padding-top: 30px!important;
+}
+
+.margin-top-30{
+    margin-top: 30px!important;
+}
+
+.margin-bottom-30{
+    margin-bottom: 30px!important;
+}
+
+.padding-bottom-30{
+    padding-bottom: 30px!important;
+}
+
+.padding-rigth-30{
+    padding-right: 30px!important;
+}
+
+.padding-bottom-25{
+    padding-bottom: 25px!important;
+}
+
+.padding-bottom-20{
+    padding-bottom: 20px!important;
+}
+
+.margin-bottom-20{
+    margin-bottom: 20px!important;
 }

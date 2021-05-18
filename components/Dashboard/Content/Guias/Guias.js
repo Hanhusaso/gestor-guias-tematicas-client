@@ -33,11 +33,11 @@ function Guias() {
 
     return (
         <div>
-            <Menu>
+            <Menu className="container-46 padding-bottom-30 padding-top-46">
                     <h3 className="title">MIS GUÍAS TEMÁTICAS</h3>
             </Menu>
 
-            <div className="dashboard__content__padding">
+            <div className="container-46 padding-top-46">
             <Table celled className="text-center">
                 <Table.Header>
                     <Table.Row>
