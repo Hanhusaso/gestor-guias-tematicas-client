@@ -165,7 +165,7 @@ export default function ColeccionLibros(props) {
                                                             <div className="margin-bottom-30">
                                                                 <FormikControl 
                                                                     control='date' 
-                                                                    className='input-edit input-auto'
+                                                                    className='input-edit'
                                                                     label='Fecha de publicación:' 
                                                                     name={`recurso[${index}].fecha`}
                                                                 />

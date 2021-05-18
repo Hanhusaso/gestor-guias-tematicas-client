@@ -8,18 +8,20 @@ function Select(props) {
     return (
         <div className={className}>
             <label htmlFor={name}>{label}</label>
-            <Field as='select' id={name} name={name} {...rest}>
-                {
-                    options.map(option => {
-                        return(
-                            <option key={option.value} value={option.value}>
-                                {option.key}
-                            </option>
-                        )
-                    })
-                }
-            </Field>
-            <ErrorMessage name={name} component={TextError}/>
+            <div className="w-calc">
+                <Field as='select' id={name} name={name} {...rest}>
+                    {
+                        options.map(option => {
+                            return(
+                                <option key={option.value} value={option.value}>
+                                    {option.key}
+                                </option>
+                            )
+                        })
+                    }
+                </Field>
+                <ErrorMessage name={name} component={TextError}/>
+            </div>
         </div>
     )
 }

@@ -71,16 +71,16 @@ function NuevaGuia(props) {
                                 <h3 className="m-0">Datos generales:</h3>
                                 {/* <form onSubmit = {formik.handleSubmit} className="form"> */}
                                     <div className="padding-top-46">
-                                        {/* <label className="input-main__label">
+                                        {/* <label className="input-create__label">
                                             <h4>Clasificación de la guía:</h4>
                                         </label>
-                                        <div className="input-main__input"> */}
-                                            {/* <input className="input-main__input__into" type='text' id='clasificacion' name="clasificacion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.clasificacion} />   
+                                        <div className="input-create__input"> */}
+                                            {/* <input className="input-create__input__into" type='text' id='clasificacion' name="clasificacion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.clasificacion} />   
                                             {formik.errors.clasificacion ? ( 
                                             <div>{formik.errors.clasificacion}</div> ) : null} */}
                                             <FormikControl 
                                                 control='select' 
-                                                className='input-main'
+                                                className='input-create'
                                                 label='Clasificación de la guía:' 
                                                 name='clasificacion'
                                                 options={clasificaciones}
@@ -90,16 +90,16 @@ function NuevaGuia(props) {
                                         
                                     </div>
                                     <div className="padding-top-46">
-                                        {/* className="input-main" */}
-                                        {/* <label className="input-main__label">
+                                        {/* className="input-create" */}
+                                        {/* <label className="input-create__label">
                                             <h4>Nombre de la guía temática:</h4>
                                         </label>
-                                        <div className="input-main__input"> */}
-                                            {/* <input className="input-main__input__into" type='text' id='nombre' name="nombre" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.nombre} />   
+                                        <div className="input-create__input"> */}
+                                            {/* <input className="input-create__input__into" type='text' id='nombre' name="nombre" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.nombre} />   
                                             {formik.errors.nombre ? ( 
                                             <div>{formik.errors.nombre}</div> ) : null} */}
                                             <FormikControl 
-                                                className='input-main'
+                                                className='input-create'
                                                 control='input' 
                                                 type='text' 
                                                 label='Nombre de la guía temática:' 
@@ -110,16 +110,16 @@ function NuevaGuia(props) {
                                     </div>
 
                                     <div className="padding-top-46">
-                                    {/* className="input-main" */}
-                                        {/* <label className="input-main__label">
+                                    {/* className="input-create" */}
+                                        {/* <label className="input-create__label">
                                             <h4>descripcion esta guía temática:</h4>
                                         </label>
-                                        <div className="input-main__input"> */}
-                                            {/* <input className="input-main__input__into" type='text' id='descripcion' name="descripcion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.descripcion} />   
+                                        <div className="input-create__input"> */}
+                                            {/* <input className="input-create__input__into" type='text' id='descripcion' name="descripcion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.descripcion} />   
                                             {formik.errors.descripcion ? ( 
                                             <div>{formik.errors.descripcion}</div> ) : null} */}
                                             <FormikControl 
-                                                className='input-main'
+                                                className='input-create'
                                                 control='textarea' 
                                                 label='Sobre esta guía temática:' 
                                                 name='descripcion'

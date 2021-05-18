@@ -10,8 +10,10 @@ function Input(props) {
     return (
         <div className={className}>
             <label htmlFor={name}>{label}</label>
-            <Field id={name} name={name} {...rest}/>
-            <ErrorMessage name={name} component={TextError}/>
+            <div className="w-calc">
+                <Field id={name} name={name} {...rest}/>
+                <ErrorMessage name={name} component={TextError}/>
+            </div>
         </div>
     )
 }

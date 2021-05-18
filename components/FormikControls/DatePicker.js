@@ -9,24 +9,26 @@ function DatePicker(props) {
     return (
         <div className={className}>
             <label htmlFor={name}>{label}</label>
-            <Field name={name}>
-                {
-                    ({form, field}) => {
-                        const {setFieldValue} = form
-                        const { value } = field
-                        return ( 
-                        <DateView 
-                            id={name} 
-                            {...field} 
-                            {...rest} 
-                            selected={value} 
-                            onChange={val => setFieldValue(name,val)}
-                        />
-                        )
+            <div className="w-calc">
+                <Field name={name}>
+                    {
+                        ({form, field}) => {
+                            const {setFieldValue} = form
+                            const { value } = field
+                            return ( 
+                            <DateView 
+                                id={name} 
+                                {...field} 
+                                {...rest} 
+                                selected={value} 
+                                onChange={val => setFieldValue(name,val)}
+                            />
+                            )
+                        }
                     }
-                }
-            </Field>
-            <ErrorMessage name={name} component={TextError}/>
+                </Field>
+                <ErrorMessage name={name} component={TextError}/>
+            </div>
         </div>
     )
 }
