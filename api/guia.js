@@ -46,3 +46,20 @@ export async function getTotalGuiasApi(){
         return error;
     }
 }
+
+export async function deleteGuiaApi(idGuia) {
+    try {
+        const url = `${BASE_PATH}/guias/${idGuia}`;
+        const params = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        const result = fetch(url, params);
+        return result;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }

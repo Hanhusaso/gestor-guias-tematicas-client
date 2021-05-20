@@ -46,7 +46,7 @@ export default function ColeccionLibros(props) {
 
             <CreateColectionModal show = {showModal} setShow={setShowModalLibro} />
 
-            <DeleteColectionModal show2 = {showModal2} setShow2={setShowModalLibro2} />
+            <DeleteColectionModal show2 = {showModal2} setShow2={setShowModalLibro2}  />
         </div>
     )
 }
