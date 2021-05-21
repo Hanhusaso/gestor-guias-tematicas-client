@@ -5,7 +5,7 @@ import useAuth from "../../../../hooks/useAuth";
 import { map, size } from "lodash";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../../../api/user";
-import { getGuiasApi, deleteGuiaApi } from '../../../../api/guia';
+import { getGuiasApi} from '../../../../api/guia';
 import Link from 'next/link';
 import DeleteGuiaModal from '../../Modal/DeleteGuiaModal';
 
@@ -82,7 +82,7 @@ function Guias() {
                             {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
                             <Table.Cell > 
-                                <Link href={`/dashboard/guias/${guia.nombre}`}>
+                                <Link href={`/dashboard/guias/${guia.url}`}>
                                     <Icon name="edit outline" className="pointer" size='large'></Icon>
                                 </Link>
                             </Table.Cell>

@@ -28,11 +28,24 @@ export async function createGuiasApi(formData){
         };
         const response = await fetch(url, params);
         const result = response.json();
+        console.log(result);
         toast.success(`Nueva guía creada`);
         return result;
     } catch (error) {
         
     }
+}
+
+export async function getLastGuiaApi() {
+    try {
+        const url = `${BASE_PATH}/guias?_limit=1&_sort=createdAt:desc`;
+        const response = await fetch(url);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+      console.log(error);
+      return null;
+    } 
 }
 
 export async function getTotalGuiasApi(){

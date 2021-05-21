@@ -19,3 +19,20 @@ export async function createGuiasApi(formData){
         
     }
 }
+
+export async function getColleccionesGuiaApi(idGuia){
+    try{
+        const url = `${BASE_PATH}/coleccions?guia._id=${idGuia}`;
+        const params = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+        const result = fetch(url, params);
+        return result;
+    } catch(error){
+        console.log(error);
+        return null;
+    }
+}
