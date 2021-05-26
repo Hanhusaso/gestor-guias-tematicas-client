@@ -59,7 +59,6 @@ function NuevaGuia(props) {
         nombre: Yup.string().required('Requerido'),
         descripcion: Yup.string().required('Requerido'),
         // email: Yup.string().email('Invalid email format').required('Required'),
-
     })
 
     const formik = useFormik({

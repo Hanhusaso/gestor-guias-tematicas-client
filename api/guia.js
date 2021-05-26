@@ -48,6 +48,19 @@ export async function getLastGuiaApi() {
     } 
 }
 
+export async function getGuiaXUrlApi(url_guia) {
+    try {
+        const url = `${BASE_PATH}/guias?url=${url_guia}`;
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result)
+        return result;
+    } catch (error) {
+      console.log(error);
+      return null;
+    } 
+}
+
 export async function getTotalGuiasApi(){
     try {
         const url = `${BASE_PATH}/guias/count`;

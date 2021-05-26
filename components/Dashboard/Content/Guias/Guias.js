@@ -69,17 +69,15 @@ function Guias() {
                         <Table.Row key={index}>
                             <Table.Cell>{index}</Table.Cell>
                             <Table.Cell>{guia.fecha}</Table.Cell>
-                            <Table.Cell>-</Table.Cell>
-                            <Table.Cell>{guia.nombre}</Table.Cell>
-                            <Table.Cell>-</Table.Cell>
-                            {/* { {guia,estado} ? (
+                            { guia.estado ? (
                                 <Table.Cell>Publicado</Table.Cell>
                                 ):(
                                     <Table.Cell>Guardado</Table.Cell>
                                 )
-                            } */}
+                            }
+                            <Table.Cell>{guia.nombre}</Table.Cell>
                             {/* <Table.Cell>{guia.estado}</Table.Cell> */}
-                            {/* <Table.Cell>${guia.usuario.username}</Table.Cell> */}
+                            <Table.Cell>{guia.usuario.username}</Table.Cell>
                             {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
                             <Table.Cell > 
                                 <Link href={`/dashboard/guias/${guia.url}`}>
