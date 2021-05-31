@@ -22,7 +22,7 @@ function Recursos() {
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
-
+    const ruta = useRouter();
     
     const changeTabs1 = () => {
         setTabs(1);
@@ -61,7 +61,7 @@ function Recursos() {
     return (
 
         <div className="dashboard resources">
-            <UserSidebar />
+            <UserSidebar ruta = {ruta.query.index}/>
 
             <div className="dashboard__content">
             
