@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { useRouter } from "next/router";
 import Libros from "../../../components/Dashboard/Content/Libros"
 import Tesis from "../../../components/Dashboard/Content/Tesis";
@@ -12,6 +10,7 @@ import useAuth from "../../../hooks/useAuth";
 import classNames from "classnames";
 import { Icon, Button } from "semantic-ui-react";
 import { getMeApi } from "../../../api/user";
+import { getGuiaXUrlApi } from '../../../api/guia';
 import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
 import OtrosSitios from '../../../components/Dashboard/Content/OtrosSitios';
 import ResourcesMenuSlider from '../../../components/Dashboard/ResourcesMenuSlider/ResourcesMenuSlider';
@@ -19,11 +18,21 @@ import ResourcesMenuSlider from '../../../components/Dashboard/ResourcesMenuSlid
 
 function Recursos() {
     const [user, setUser] = useState(undefined);
-    // const [user, setUser] = useState(undefined);
+    const [guia, setGuia] = useState(undefined);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
-    const router = useRouter();
-    const ruta = useRouter();
+    const  ruta = useRouter();
+
+
+    useEffect(() => {
+        (async () => {
+            const { recursos} = ruta.query;
+            const response = await getGuiaXUrlApi(recursos);
+            setGuia(response);
+            // console.log();
+        })();
+    })
+
     
     const changeTabs1 = () => {
         setTabs(1);
@@ -67,7 +76,7 @@ function Recursos() {
             <div className="dashboard__content">
             
             <Menu className="container-46 padding-bottom-30 padding-top-46">
-                    <h3 className="title">GUÍA 001: BIOLOGÍA</h3>
+                    <h3 className="title">GUÍA 001: {guia? guia[0].nombre : 'Hansini'}</h3>
                     {/* <Button primary>Primary</Button> */}
             </Menu>
 
@@ -77,24 +86,24 @@ function Recursos() {
                 <ResourcesMenuSlider tabsp={tabs} setTabsp={setTabs}/>
 
                         {tabs == 1 ? (
-                            <Libros />
+                            <Libros idGuia = { guia? guia[0]._id:""}/>
                         ): null}
 
                         {tabs == 2 ? (
-                            <Tesis />
+                            <Tesis idGuia = { guia? guia[0]._id:""}/>
                         ): null}
 
                         {tabs == 3 ? (
-                            <Revistas />
+                            <Revistas idGuia = { guia? guia[0]._id:""}/>
                         ): null}
                         {tabs == 4 ? (
-                            <Enciclopedias />
+                            <Enciclopedias idGuia = { guia? guia[0]._id:""}/>
                         ): null}
                         {tabs == 5 ? (
-                            <BaseDatos />
+                            <BaseDatos idGuia = { guia? guia[0]._id:""}/>
                         ): null}
                         {tabs == 6 ? (
-                            <OtrosSitios />
+                            <OtrosSitios idGuia = { guia? guia[0]._id:""}/>
                         ): null}
             </div>
         </div>

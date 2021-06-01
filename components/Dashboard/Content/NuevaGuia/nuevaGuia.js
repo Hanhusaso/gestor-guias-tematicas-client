@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useFormik } from 'formik';
+import { useRouter } from "next/router";
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
-import { createGuiasApi } from '../../../../api/guia';
+import { createGuiasApi, getLastGuiaApi } from '../../../../api/guia';
 import FormikControl from '../../../FormikControls/FormikControl';
 
 import { Field, ErrorMessage } from 'formik'
@@ -11,13 +12,29 @@ import TextError from '../../../FormikControls/TextError';
 
 function NuevaGuia(props) {
     const { auth } = props;
+    const router = useRouter();
+
+    const limpiarAcentos= (cadena) =>{
+        cadena = cadena.toLowerCase();
+     
+        // Quitamos acentos y "ñ". Fijate en que va sin comillas el primer parametro
+        cadena = cadena.replace(/á/gi,"a");
+        cadena = cadena.replace(/é/gi,"e");
+        cadena = cadena.replace(/í/gi,"i");
+        cadena = cadena.replace(/ó/gi,"o");
+        cadena = cadena.replace(/ú/gi,"u");
+        cadena = cadena.replace(/ñ/gi,"n");
+        return cadena;
+     }
+
     const initialValues = {
         clasificacion: '',
         nombre: '',
         descripcion: '',
         fecha: new Date(),
         estado: false,
-        usuario: auth.idUser
+        usuario: auth.idUser,
+        url:''
     }
 
     const clasificaciones = [
@@ -29,11 +46,12 @@ function NuevaGuia(props) {
         { key: 'Por recursos de apoyo a la investigación', value: 'Por recursos de apoyo a la investigación' }
     ]
 
-    const onSubmit = values => {
-        console.log('Form data', values)
-        console.log(values.usuario);
-        // values.usuario = user
+    const onSubmit = async (values) => {
+        values.url = (((limpiarAcentos(values.nombre)).toLowerCase()).replace(/[^a-zA-Z0-9 ]/g, '')).replace(/ /g, '-');
         createGuiasApi(values);
+        const ultimaGuia = await getLastGuiaApi();
+        console.log(ultimaGuia[0].url);
+        router.replace(`/dashboard/guias/${ultimaGuia[0].url}`);
     }
 
     const validationSchema = Yup.object({
@@ -41,7 +59,6 @@ function NuevaGuia(props) {
         nombre: Yup.string().required('Requerido'),
         descripcion: Yup.string().required('Requerido'),
         // email: Yup.string().email('Invalid email format').required('Required'),
-
     })
 
     const formik = useFormik({
