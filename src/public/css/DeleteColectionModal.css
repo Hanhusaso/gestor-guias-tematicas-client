@@ -1,0 +1,47 @@
+.content {
+  padding: 0 !important;
+}
+
+.delete-colection-modal {
+  border-radius: 20px !important;
+  background-color: #E5E5E5 !important;
+  text-align: center;
+}
+
+.delete-colection-modal__content {
+  text-align: center;
+}
+
+.delete-colection-modal__content h2 {
+  margin-bottom: 6%;
+}
+
+.delete-colection-modal__content__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.delete-colection-modal__content__buttons .button {
+  background-color: #70191c;
+  border-radius: 25px;
+  font-size: 16px;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  width: 35%;
+  color: white;
+}
+
+.delete-colection-modal__content__buttons .button:hover {
+  background-color: #f9f6f6;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.delete-colection-modal .content {
+  border-radius: 20px !important;
+}
+/*# sourceMappingURL=DeleteColectionModal.css.map */

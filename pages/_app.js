@@ -10,6 +10,9 @@ import "semantic-ui-css/semantic.min.css";
 import '../sass/index.scss'
 import "react-toastify/dist/ReactToastify.min.css";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function MyApp({ Component, pageProps }) {
   const [auth, setAuth] = useState(undefined);
   const [ realoadUser, setReloadUser ] = useState(false);

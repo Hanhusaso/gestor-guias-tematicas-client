@@ -1,0 +1,31 @@
+.user-sidebar__element {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 15% !important;
+  padding-right: 15% !important;
+  cursor: pointer;
+  width: 100%;
+}
+
+.user-sidebar .d-center {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+}
+
+.user-sidebar__element:hover {
+  background: #70191c;
+  color: white;
+}
+
+.user-sidebar .select {
+  background: #70191c;
+  color: white;
+}
+/*# sourceMappingURL=UserSideBar.css.map */

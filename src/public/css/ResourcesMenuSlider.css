@@ -1,0 +1,57 @@
+.resources-slider {
+  border: none;
+  margin: 0;
+  -webkit-box-shadow: 0px 0.1px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0.1px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.resources-slider__item {
+  position: relative;
+  vertical-align: middle;
+  line-height: 1;
+  -webkit-text-emphasis: none;
+          text-emphasis: none;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: .92857143em 1.14285714em;
+  text-transform: none;
+  transition: background .1s ease,box-shadow .1s ease,color .1s ease,-webkit-box-shadow .1s ease;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 4px solid;
+  border-color: transparent;
+}
+
+.slick-dots {
+  display: none !important;
+}
+
+.slick-prev:before {
+  color: #70191c !important;
+}
+
+.slick-next:before {
+  color: #70191c !important;
+}
+/*# sourceMappingURL=ResourcesMenuSlider.css.map */
