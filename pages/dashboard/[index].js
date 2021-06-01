@@ -40,7 +40,7 @@ function dashboard() {
 
     return (
         <div className="dashboard">
-            <UserSidebar />
+            <UserSidebar ruta = {ruta.query.index} />
 
             <div className="dashboard__content">
                 

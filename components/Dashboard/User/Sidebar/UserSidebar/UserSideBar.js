@@ -3,19 +3,20 @@ import { List, Image, Icon } from "semantic-ui-react";
 import useAuth from "../../../../../hooks/useAuth";
 import Link from 'next/link';
 
-export default function UserSidebar() {
+export default function UserSidebar(props) {
     const { logout } = useAuth();
-    const [select1, setSelect1] = useState('user-sidebar__element select');
-    const [select2, setSelect2] = useState('user-sidebar__element');
+    const [select1, setSelect1] = useState('select');
+    const [select2, setSelect2] = useState('');
+    const {ruta} = props;
 
     const changeSelect1 = () => {
-        setSelect1("user-sidebar__element select");
-        setSelect2("user-sidebar__element");
+        setSelect1("select");
+        setSelect2("");
     };
 
     const changeSelect2 = () => {
-        setSelect1("user-sidebar__element");
-        setSelect2("user-sidebar__element select");
+        setSelect1("");
+        setSelect2(" select");
     };
 
     return (
@@ -30,7 +31,7 @@ export default function UserSidebar() {
                 <List className="padding-list d-center flex-column">
                     
                     <Link href="/dashboard/guias">
-                        <List.Item className={select1} onClick={changeSelect1}>
+                        <List.Item className={ruta == "guias" || ruta == undefined ? "user-sidebar__element select" : "user-sidebar__element" } onClick={changeSelect1}>
                             <Icon name="users"/>
                             <div className="content">
                                 MIS GUIAS TEMATICAS
@@ -38,7 +39,7 @@ export default function UserSidebar() {
                         </List.Item>
                     </Link>
                     <Link href="/dashboard/crear-guia">
-                        <List.Item className={select2} onClick={changeSelect2}>
+                        <List.Item className={ruta == "crear-guia" ? " user-sidebar__element select" : "user-sidebar__element" } onClick={changeSelect2}>
                             <Icon name="marker"/>
                             <div className="content">
                                 INGRESAR NUEVA GUÍA TEMÁTICA

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACK,AAAD,kBAAS,CAAA;EACL,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,aAAa;CACjC;;AAEA,AAAD,gBAAO,CAAA;EACH,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,OAAO,EAAE,CAAC;CAOb;;AALI,AAAD,sBAAO,CAAA;EACH,OAAO,EAAE,CAAC,CAAA,UAAU;EACpB,MAAM,EAAE,CAAC,CAAA,UAAU;CACtB",
+    "sources": [
+        "../../../pages/dashboard/guias/recursos.scss"
+    ],
+    "names": [],
+    "file": "recursos.css"
+}
