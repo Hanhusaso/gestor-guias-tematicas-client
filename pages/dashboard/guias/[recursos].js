@@ -14,7 +14,10 @@ import { getGuiaXUrlApi } from '../../../api/guia';
 import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
 import OtrosSitios from '../../../components/Dashboard/Content/OtrosSitios';
 import ResourcesMenuSlider from '../../../components/Dashboard/ResourcesMenuSlider/ResourcesMenuSlider';
-
+import Periodicas from '../../../components/Dashboard/Content/Periodicas/Periodicas';
+import Videos from '../../../components/Dashboard/Content/Videos/Videos';
+import Examenes from '../../../components/Dashboard/Content/Examenes';
+import Syllabus from '../../../components/Dashboard/Content/Syllabus';
 
 function Recursos() {
     const [user, setUser] = useState(undefined);
@@ -54,6 +57,10 @@ function Recursos() {
 
     const changeTabs6 = () => {
         setTabs(6);
+    };
+
+    const changeTabs7 = () => {
+        setTabs(7);
     };
 
     useEffect(() => {
@@ -104,6 +111,18 @@ function Recursos() {
                         ): null}
                         {tabs == 6 ? (
                             <OtrosSitios idGuia = { guia? guia[0]._id:""}/>
+                        ): null}
+                        {tabs == 7 ? (
+                            <Periodicas />
+                        ): null}
+                        {tabs == 8 ? (
+                            <Videos />
+                        ): null}
+                        {tabs == 9 ? (
+                            <Examenes />
+                        ): null}
+                        {tabs == 10 ? (
+                            <Syllabus />
                         ): null}
             </div>
         </div>
