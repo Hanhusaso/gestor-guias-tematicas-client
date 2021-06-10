@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Loader } from 'semantic-ui-react'
 import { useFormik } from 'formik';
 import { useRouter } from "next/router";
 import { Formik, Form } from 'formik'
@@ -13,6 +13,7 @@ import TextError from '../../../FormikControls/TextError';
 function NuevaGuia(props) {
     const { auth } = props;
     const router = useRouter();
+    const [loadingNewGuias, setLoadingNewGuias] = useState(false);
 
     const limpiarAcentos= (cadena) =>{
         cadena = cadena.toLowerCase();
@@ -47,10 +48,12 @@ function NuevaGuia(props) {
     ]
 
     const onSubmit = async (values) => {
+        setLoadingNewGuias(true);
         values.url = (((limpiarAcentos(values.nombre)).toLowerCase()).replace(/[^a-zA-Z0-9 ]/g, '')).replace(/ /g, '-');
         createGuiasApi(values);
         const ultimaGuia = await getLastGuiaApi();
         console.log(ultimaGuia[0].url);
+        setLoadingNewGuias(false);
         router.replace(`/dashboard/guias/${ultimaGuia[0].url}`);
     }
 
@@ -88,13 +91,7 @@ function NuevaGuia(props) {
                                 <h3 className="m-0">Datos generales:</h3>
                                 {/* <form onSubmit = {formik.handleSubmit} className="form"> */}
                                     <div className="padding-top-46">
-                                        {/* <label className="input-create__label">
-                                            <h4>Clasificación de la guía:</h4>
-                                        </label>
-                                        <div className="input-create__input"> */}
-                                            {/* <input className="input-create__input__into" type='text' id='clasificacion' name="clasificacion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.clasificacion} />   
-                                            {formik.errors.clasificacion ? ( 
-                                            <div>{formik.errors.clasificacion}</div> ) : null} */}
+                                        
                                             <FormikControl 
                                                 control='select' 
                                                 className='input-create'
@@ -102,19 +99,10 @@ function NuevaGuia(props) {
                                                 name='clasificacion'
                                                 options={clasificaciones}
                                             />
-                                            {/*  */}
-                                        {/* </div> */}
                                         
                                     </div>
                                     <div className="padding-top-46">
-                                        {/* className="input-create" */}
-                                        {/* <label className="input-create__label">
-                                            <h4>Nombre de la guía temática:</h4>
-                                        </label>
-                                        <div className="input-create__input"> */}
-                                            {/* <input className="input-create__input__into" type='text' id='nombre' name="nombre" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.nombre} />   
-                                            {formik.errors.nombre ? ( 
-                                            <div>{formik.errors.nombre}</div> ) : null} */}
+                                        
                                             <FormikControl 
                                                 className='input-create'
                                                 control='input' 
@@ -122,31 +110,27 @@ function NuevaGuia(props) {
                                                 label='Nombre de la guía temática:' 
                                                 name='nombre'
                                             />
-                                        {/* </div> */}
                                         
                                     </div>
 
                                     <div className="padding-top-46">
-                                    {/* className="input-create" */}
-                                        {/* <label className="input-create__label">
-                                            <h4>descripcion esta guía temática:</h4>
-                                        </label>
-                                        <div className="input-create__input"> */}
-                                            {/* <input className="input-create__input__into" type='text' id='descripcion' name="descripcion" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.descripcion} />   
-                                            {formik.errors.descripcion ? ( 
-                                            <div>{formik.errors.descripcion}</div> ) : null} */}
+                                   
                                             <FormikControl 
                                                 className='input-create'
                                                 control='textarea' 
                                                 label='Sobre esta guía temática:' 
                                                 name='descripcion'
                                             />
-                                        {/* </div> */}
                                         
                                     </div>
                                     <div className="d-center padding-top-46">
                                         {/* <Link href={`/dashboard/guias/${guia.id}`}> */}
+                                        {
+                                            loadingNewGuias ? 
+                                            <Loader active inline='centered' size='huge' /> :
                                             <button type="submit" className="form__button">Continuar</button>
+                                        }
+
                                         {/* </Link> */}
                                     </div>  
                                 {/* </form> */}

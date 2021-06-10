@@ -135,3 +135,12 @@
 .margin-bottom-20{
     margin-bottom: 20px!important;
 }
+
+//loading
+.loader{
+    border-bottom: none!important;
+}
+
+.ui.loader:after{
+    border-color: #70191c transparent transparent!important;
+}
