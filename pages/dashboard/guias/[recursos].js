@@ -1,23 +1,14 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useRouter } from "next/router";
-import Libros from "../../../components/Dashboard/Content/Libros"
-import Tesis from "../../../components/Dashboard/Content/Tesis";
-import Revistas from "../../../components/Dashboard/Content/Revistas";
-import Enciclopedias from "../../../components/Dashboard/Content/Enciclopedias";
-import BaseDatos from "../../../components/Dashboard/Content/BaseDatos";
 import useAuth from "../../../hooks/useAuth";
 import classNames from "classnames";
 import { Icon, Button } from "semantic-ui-react";
 import { getMeApi } from "../../../api/user";
 import { getGuiaXUrlApi } from '../../../api/guia';
 import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
-import OtrosSitios from '../../../components/Dashboard/Content/OtrosSitios';
-import ResourcesMenuSlider from '../../../components/Dashboard/ResourcesMenuSlider/ResourcesMenuSlider';
-import Periodicas from '../../../components/Dashboard/Content/Periodicas/Periodicas';
-import Videos from '../../../components/Dashboard/Content/Videos/Videos';
-import Examenes from '../../../components/Dashboard/Content/Examenes';
-import Syllabus from '../../../components/Dashboard/Content/Syllabus';
+import Colections from '../../../components/Dashboard/Colections';
+import MenuSlider from '../../../components/Dashboard/MenuSlider/MenuSlider';
 
 function Recursos() {
     const [user, setUser] = useState(undefined);
@@ -90,39 +81,39 @@ function Recursos() {
             <div className="container-46 padding-top-46">
                 <h3 className="m-0 padding-bottom-46">Recursos:</h3>
 
-                <ResourcesMenuSlider tabsp={tabs} setTabsp={setTabs}/>
+                <MenuSlider tabsp={tabs} setTabsp={setTabs}/>
 
                         {tabs == 1 ? (
-                            <Libros idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Libros"/>
                         ): null}
 
                         {tabs == 2 ? (
-                            <Tesis idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Tesis"/>
                         ): null}
 
                         {tabs == 3 ? (
-                            <Revistas idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Revistas"/>
                         ): null}
                         {tabs == 4 ? (
-                            <Enciclopedias idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Enciclopedias"/>
                         ): null}
                         {tabs == 5 ? (
-                            <BaseDatos idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="BaseDatos"/>
                         ): null}
                         {tabs == 6 ? (
-                            <OtrosSitios idGuia = { guia? guia[0]._id:""}/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="OtrosSitios"/>
                         ): null}
                         {tabs == 7 ? (
-                            <Periodicas />
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Periodicas"/>
                         ): null}
                         {tabs == 8 ? (
-                            <Videos />
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Videos"/>
                         ): null}
                         {tabs == 9 ? (
-                            <Examenes />
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Examenes"/>
                         ): null}
                         {tabs == 10 ? (
-                            <Syllabus />
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Syllabus"/>
                         ): null}
             </div>
         </div>

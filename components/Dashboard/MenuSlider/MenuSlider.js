@@ -5,7 +5,7 @@ import { Icon, Button } from "semantic-ui-react";
 
 const tabs = 1;
 
-export default class ResourcesMenuSlider extends Component {
+export default class MenuSlider extends Component {
   state = {tabs}
 
   handleChange1 = () => {
@@ -68,66 +68,66 @@ export default class ResourcesMenuSlider extends Component {
     };
 
     return (
-      <div className="resources-slider ">
+      <div className="menu-slider ">
         {/* <h2> Multiple items </h2> */}
         <Slider {...settings}>
-          <div className={`resources-slider__item ${this.state.tabs == 1 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 1 ? ' active' : ''}`} 
           onClick={this.handleChange1}>
             <Icon name="book" size='large'/>
             <h4 className="m-0">Libros</h4>
           </div>
           
-          {/* className="resources-slider__item"  */}
+          {/* className="menu-slider__item"  */}
           
-          <div className={`resources-slider__item ${this.state.tabs == 2 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 2 ? ' active' : ''}`} 
           onClick={this.handleChange2}>
             <Icon name="graduation" size='large'/>
             <h4 className="m-0">Tesis</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 3 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 3 ? ' active' : ''}`} 
           onClick={this.handleChange3}>
             <Icon name="file outline" size='large'/>
             <h4 className="m-0">Revistas</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 4 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 4 ? ' active' : ''}`} 
           onClick={this.handleChange4}>
             <Icon name="database" size='large'/>
             <h4 className="m-0">Enciclopedias y Diccionarios</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 5 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 5 ? ' active' : ''}`} 
           onClick={this.handleChange5}>
             <Icon name="database" size='large'/>
             <h4 className="m-0">Bases de Datos</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 6 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 6 ? ' active' : ''}`} 
           onClick={this.handleChange6}>
             <Icon name="window restore outline" size='large'/>
             <h4 className="m-0">Otros sitios web</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 7 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 7 ? ' active' : ''}`} 
           onClick={this.handleChange7}>
             <Icon name="window restore outline" size='large'/>
             <h4 className="m-0">Publicaciones periódicas</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 8 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 8 ? ' active' : ''}`} 
           onClick={this.handleChange8}>
             <Icon name="file video" size='large'/>
             <h4 className="m-0">Videos</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 9 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 9 ? ' active' : ''}`} 
           onClick={this.handleChange9}>
             <Icon name="file outline" size='large'/>
             <h4 className="m-0">Test/Exámenes</h4>
           </div>
 
-          <div className={`resources-slider__item ${this.state.tabs == 10 ? ' active' : ''}`} 
+          <div className={`menu-slider__item ${this.state.tabs == 10 ? ' active' : ''}`} 
           onClick={this.handleChange10}>
             <Icon name="paperclip" size='large'/>
             <h4 className="m-0">Syllabus</h4>
