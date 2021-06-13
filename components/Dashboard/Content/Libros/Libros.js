@@ -8,7 +8,7 @@ export default function Libros(props) {
     const [showEdit, setShowEdit] = React.useState(false);
     const openShowEdit = () => { setShowEdit(true)};
 
-    console.log(idGuia);
+    // console.log(idGuia);
 
     return (
         <div>

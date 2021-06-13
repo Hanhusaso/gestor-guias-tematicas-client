@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { List, Image, Icon } from "semantic-ui-react";
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+// import DeleteColectionModal from '../../Modal/DeleteColectionModal';
 
 export default function ColeccionTesis(props) {
 
@@ -47,7 +47,7 @@ export default function ColeccionTesis(props) {
 
             <CreateColectionModal show = {showModalTesis} setShow={setShowModalTesis} />
 
-            <DeleteColectionModal show2 = {showModalTesis2} setShow2={setShowModalTesis2} />
+            {/* <DeleteColectionModal show2 = {showModalTesis2} setShow2={setShowModalTesis2} /> */}
 
         </div>
     )

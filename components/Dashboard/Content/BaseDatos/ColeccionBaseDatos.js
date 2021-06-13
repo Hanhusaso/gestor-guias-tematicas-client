@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { List, Image, Icon } from "semantic-ui-react";
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+// import DeleteColectionModal from '../../Modal/DeleteColectionModal';
 
 export default function ColeccionBaseDatos(props) {
 
@@ -53,7 +53,7 @@ export default function ColeccionBaseDatos(props) {
 
             <CreateColectionModal show = {showModalBaseDatos} setShow={setShowModalBaseDatos} />
 
-            <DeleteColectionModal show2 = {showModalBaseDatos2} setShow2={setShowModalBaseDatos2} />
+            {/* <DeleteColectionModal show2 = {showModalBaseDatos2} setShow2={setShowModalBaseDatos2} /> */}
 
         </div>
     )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { List, Image, Icon } from "semantic-ui-react";
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+// import DeleteColectionModal from '../../Modal/DeleteColectionModal';
 
 export default function ColeccionOtrosSitios(props) {
 
@@ -53,7 +53,7 @@ export default function ColeccionOtrosSitios(props) {
 
             <CreateColectionModal show = {showModalOtrosSitios} setShow={setShowModalOtrosSitios} />
 
-            <DeleteColectionModal show2 = {showModalOtrosSitios2} setShow2={setShowModalOtrosSitios2} />
+            {/* <DeleteColectionModal show2 = {showModalOtrosSitios2} setShow2={setShowModalOtrosSitios2} /> */}
 
         </div>
     )

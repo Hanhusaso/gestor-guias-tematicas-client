@@ -84,7 +84,6 @@ function NuevaGuia(props) {
                 {formik => (
                     <Form className="form">
 
-                        {/* <FormikControl control='input' type='email' label='Correo' name='email'/> */}
                         <div className="container-46">
                             <div className="padding-top-46">
                                 

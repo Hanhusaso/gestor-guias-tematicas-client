@@ -4,26 +4,28 @@ import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
 import { size } from "lodash";
 import { getColeccionesGuiaApi } from '../../../../api/coleccion';
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+import DeleteModal from '../../Modal/DeleteModal';
 
 export default function ColeccionLibros(props) {
 
     const {idGuia, edit, setEdit} = props;
     const [colecciones, setColeciones] = useState([]);
+    const [idLibro, setIdLibro] = useState(undefined);
+    const [loading, setLoading] = useState(true);
     const openEdit = () => setEdit(true);
 
     const [showModal, setShowModalLibro] = React.useState(false);
     const openShowModalLibro = () => { setShowModalLibro(true)}
 
-    const [showModal2, setShowModalLibro2] = React.useState(false);
-    const openShowModalLibro2 = () => { setShowModalLibro2(true)}
+    const [showModalDelete, setShowModalLibroDelete] = React.useState(false);
+    // const openShowModalLibroDelete = () => { }
     
     useEffect(() => {
         (async () => {
-          const response = await getColeccionesGuiaApi("Libros",idGuia);
-          console.log(response);
-          setColeciones(response);
-          console.log(colecciones);
+            console.log("idGuia",idGuia);
+            const response = await getColeccionesGuiaApi("Libros",idGuia);
+            setColeciones(response);
+            return () => {setLoading(false);}
         })();
     });
 
@@ -45,12 +47,12 @@ export default function ColeccionLibros(props) {
                     colecciones.map((coleccion, index) =>(
                         <div className="colections__content__element padding-bottom-25">
                             <div className="colections__content__element__box container-46">
-                                <h3 className="m-0">{coleccion.nombre}</h3>
+                                <h3 key={index} className="m-0">{coleccion.nombre}</h3>
                                 <div className="colections__content__element__box__button" onClick={openEdit}>
                                     Editar
                                 </div>
                             </div>
-                            <Icon name="trash alternate outline" size='large' onClick={openShowModalLibro2}/>
+                            <Icon name="trash alternate outline" size='large' onClick={ () => {setShowModalLibroDelete(true), setIdLibro(coleccion._id)}}/>
                         </div>
                         ) ) 
                 }
@@ -58,7 +60,7 @@ export default function ColeccionLibros(props) {
 
             <CreateColectionModal show = {showModal} setShow={setShowModalLibro} />
 
-            <DeleteColectionModal show2 = {showModal2} setShow2={setShowModalLibro2}  />
+            <DeleteModal show = {showModalDelete} setShow={setShowModalLibroDelete} tipo="libro" idDelete={idLibro} setLoading={setLoading} />
         </div>
     )
 }

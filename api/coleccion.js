@@ -31,10 +31,10 @@ export async function getColeccionesGuiaApi(recurso, idGuia){
         };
         const response = await fetch(url, params);
         const result = response.json();
-        console.log(result);
+        // console.log(result);
         return result;
     } catch(error){
-        console.log(error);
+        // console.log(error);
         return null;
     }   
 }

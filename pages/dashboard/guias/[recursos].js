@@ -128,10 +128,6 @@ function Recursos() {
         </div>
 
         </div>
-            
-        
-
-       
     )
 }
 

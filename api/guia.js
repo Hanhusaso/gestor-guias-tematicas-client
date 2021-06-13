@@ -10,7 +10,7 @@ export async function getGuiasApi(limit, start){
         const result = await response.json();
         return result;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return null;
     }
 }
@@ -28,7 +28,7 @@ export async function createGuiasApi(formData){
         };
         const response = await fetch(url, params);
         const result = response.json();
-        console.log(result);
+        // console.log(result);
         toast.success(`Nueva guía creada`);
         return result;
     } catch (error) {
@@ -43,7 +43,7 @@ export async function getLastGuiaApi() {
         const result = await response.json();
         return result;
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
       return null;
     } 
 }
@@ -53,10 +53,10 @@ export async function getGuiaXUrlApi(url_guia) {
         const url = `${BASE_PATH}/guias?url=${url_guia}`;
         const response = await fetch(url);
         const result = await response.json();
-        console.log(result)
+        // console.log(result)
         return result;
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
       return null;
     } 
 }
@@ -68,7 +68,7 @@ export async function getTotalGuiasApi(){
         const result = response.json();
         return result;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return error;
     }
 }
@@ -85,7 +85,7 @@ export async function deleteGuiaApi(idGuia) {
         const result = fetch(url, params);
         return result;
     } catch (error) {
-      console.log(error);
+    //   console.log(error);
       return null;
     }
-  }
+}

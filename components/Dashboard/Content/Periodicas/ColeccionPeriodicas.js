@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { List, Image, Icon } from "semantic-ui-react";
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+// import DeleteColectionModal from '../../Modal/DeleteColectionModal';
 
 export default function ColeccionPeriodicas(props) {
 
@@ -46,7 +46,7 @@ export default function ColeccionPeriodicas(props) {
 
             <CreateColectionModal show = {showModalPeriodicas} setShow={setShowModalPeriodicas} />
 
-            <DeleteColectionModal show2 = {showModalPeriodicas2} setShow2={setShowModalPeriodicas2} />
+            {/* <DeleteColectionModal show2 = {showModalPeriodicas2} setShow2={setShowModalPeriodicas2} /> */}
 
         </div>
     )

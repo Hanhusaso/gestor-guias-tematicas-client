@@ -1,7 +1,7 @@
 import { BASE_PATH } from "../utils/constants"
 
 export function registerApi(formData){
-    console.log(formData);
+    // console.log(formData);
 }
 
 export async function loginApi(formData){
@@ -20,7 +20,7 @@ export async function loginApi(formData){
         return result;
     } catch( error ){
       
-        console.log(error);
+        // console.log(error);
         return null;
     }
 }
@@ -39,7 +39,7 @@ export async function resetPasswordApi(email) {
       const result = await response.json();
       return result;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return null;
     }
 }
@@ -66,7 +66,7 @@ export async function getUser(idUser) {
       };
       const response = await fetch(url, params);
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       return result;
     } catch (error) {
       return null;
@@ -86,7 +86,7 @@ export async function getUser(idUser) {
       const result = await authFetch(url, params, logout);
       return result ? result : null;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return null;
     }
   }
@@ -104,7 +104,7 @@ export async function getUser(idUser) {
       const result = await authFetch(url, params, logout);
       return result ? result : null;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return null;
     }
   }
@@ -123,7 +123,7 @@ export async function getUser(idUser) {
       const result = await authFetch(url, params, logout);
       return result ? result : null;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return null;
     }
   }

@@ -1,21 +1,33 @@
 import { toast } from 'react-toastify';
 import {Modal, Icon, Header, Button, Loader} from 'semantic-ui-react'
 import { deleteGuiaApi } from '../../../../api/guia';
+import { deleteLibroApi } from '../../../../api/libro';
 import React, { useState, useEffect } from 'react'
 
-export default function DeleteGuiaModal(props){
+export default function DeleteModal(props){
     
-    const {show, setShow, idGuia, setLoadingColectionGuias} = props;
+    const {show, setShow, idDelete, setLoading, tipo} = props;
 
     const onClose = () => setShow(false);
-    const [loadingDeleteGuias, setLoadingDeleteGuias] = useState(false);
+    const [loadingDelete, setLoadingDelete] = useState(false);
 
     async function deleteGuia(id){
-        setLoadingDeleteGuias(true);
-        await deleteGuiaApi(id);   
-        setLoadingColectionGuias(true);
+        setLoadingDelete(true);
+        console.log(tipo);
+        console.log(id);
+        switch(tipo){
+            case 'guia':
+                await deleteGuiaApi(id);
+                break;
+            case 'libro':
+                await deleteLibroApi(id);
+                break;
+            default: break;
+        }
+
+        setLoading(true);
         setShow(false);
-        setLoadingDeleteGuias(false);
+        setLoadingDelete(false);
         toast.success(`La guia se eliminó correctamente`);
     };
 
@@ -30,14 +42,14 @@ export default function DeleteGuiaModal(props){
                 <div className="delete-colection-modal__content padding-top-46 padding-bottom-46">
                     <h2 className="m-0">¿Estás seguro de eliminar la Guía?</h2>
                     {
-                        loadingDeleteGuias 
+                        loadingDelete 
                         ?
                         <div className="delete-colection-modal__content__buttons padding-top-46">
                             <Loader active inline='centered' size='huge' className="loading-center" />
                         </div> 
                         : 
                         <div className="delete-colection-modal__content__buttons padding-top-46">
-                            <Button onClick={ () => deleteGuia(idGuia)} >Sí, eliminar la Guía</Button>
+                            <Button onClick={ () => deleteGuia(idDelete)} >Sí, eliminar la Guía</Button>
                             <Button onClick={ () => onClose()}>Cancelar</Button>            
                         </div> 
                     }        

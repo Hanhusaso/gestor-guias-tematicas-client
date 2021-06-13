@@ -7,7 +7,7 @@ import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../../../api/user";
 import { getGuiasApi} from '../../../../api/guia';
 import Link from 'next/link';
-import DeleteGuiaModal from '../../Modal/DeleteGuiaModal';
+import DeleteModal from '../../Modal/DeleteModal';
 
 const limitPerPage = 50;
 
@@ -18,7 +18,7 @@ function Guias() {
     const [totalGuias, setTotalGuias] = useState(null);
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
-    const [loadingColectionGuias, setLoadingColectionGuias] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const [showModalGuia, setShowModalGuia] = useState(false);
     const openShowModalGuia = () => { setShowModalGuia(true)}
@@ -29,11 +29,11 @@ function Guias() {
     useEffect(() => {
         (async () => {
           const response = await getGuiasApi(limitPerPage,0);
-          console.log(response);
+        //   console.log(response);
           setGuias(response);
-          setLoadingColectionGuias(false);
+          setLoading(false);
         })();
-    }, [loadingColectionGuias]);
+    }, [loading]);
 
     useEffect(() => {
         (async () => {
@@ -50,7 +50,7 @@ function Guias() {
             </Menu>
 
             <div className="container-46 padding-top-46">
-                {loadingColectionGuias ? <Loader active inline='centered' size='huge' /> : 
+                {loading ? <Loader active inline='centered' size='huge' /> : 
                 <Table celled className="text-center">
                     
                     <Table.Header>
@@ -122,7 +122,7 @@ function Guias() {
                 </Table>
                 }
             </div>
-            <DeleteGuiaModal show = {showModalGuia} setShow={setShowModalGuia} idGuia = {idGuia} setLoadingColectionGuias={setLoadingColectionGuias}/>
+            <DeleteModal show = {showModalGuia} setShow={setShowModalGuia} idDelete = {idGuia} setLoading={setLoading} tipo="guia"/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { List, Image, Icon } from "semantic-ui-react";
 import CreateColectionModal from '../../Modal/CreateColectionModal';
-import DeleteColectionModal from '../../Modal/DeleteColectionModal';
+// import DeleteColectionModal from '../../Modal/DeleteColectionModal';
 
 export default function ColeccionVideos(props) {
 
@@ -20,7 +20,7 @@ export default function ColeccionVideos(props) {
             <div className="colections__header">
                 <h3 className="colections__header__title">COLECCIONES</h3> 
                 <div className="colections__header__button" onClick={openShowModalVideos}><Icon name="add circle"/> <h3 className="colections__header__create">Crear Colección</h3></div>
-                {/* <h3>Crear Colección</h3> */}
+                
             </div>
 
             <div className="colections__content container-30 padding-top-46">
@@ -47,7 +47,7 @@ export default function ColeccionVideos(props) {
 
             <CreateColectionModal show = {showModalVideos} setShow={setShowModalVideos} />
 
-            <DeleteColectionModal show2 = {showModalVideos2} setShow2={setShowModalVideos2} />
+            {/* <DeleteColectionModal show2 = {showModalVideos2} setShow2={setShowModalVideos2} /> */}
 
         </div>
     )
