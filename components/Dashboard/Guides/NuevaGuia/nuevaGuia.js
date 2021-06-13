@@ -4,11 +4,11 @@ import { useFormik } from 'formik';
 import { useRouter } from "next/router";
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
-import { createGuiasApi, getLastGuiaApi } from '../../../../../api/guia';
-import FormikControl from '../../../../FormikControls/FormikControl';
+import { createGuiasApi, getLastGuiaApi } from '../../../../api/guia';
+import FormikControl from '../../../FormikControls/FormikControl';
 
 import { Field, ErrorMessage } from 'formik'
-import TextError from '../../../../FormikControls/TextError';
+import TextError from '../../../FormikControls/TextError';
 
 function NuevaGuia(props) {
     const { auth } = props;

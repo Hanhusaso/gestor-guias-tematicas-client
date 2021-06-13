@@ -7,8 +7,8 @@ import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../api/user";
 import UserSidebar from "../../components/Dashboard/Sidebar/UserSideBar";
 
-import NuevaGuia from "../../components/Dashboard/Sidebar/OptionsSidebar/NuevaGuia/nuevaGuia";
-import Guias from '../../components/Dashboard/Sidebar/OptionsSidebar/Guias/Guias';
+import NuevaGuia from "../../components/Dashboard/Guides/NuevaGuia/nuevaGuia";
+import Guias from '../../components/Dashboard/Guides/Guias/Guias';
 
 function dashboard() {
     const [user, setUser] = useState(undefined);

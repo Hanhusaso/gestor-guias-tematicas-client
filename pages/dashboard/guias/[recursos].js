@@ -61,11 +61,6 @@ function Recursos() {
         })();
     }, [auth]);
 
-    
-    // const { activeItem } = this.state
-    
-    // const [activeItem, setActiveItem] = useState('MIS GUIAS TEMÁTICAS');
-
     return (
 
         <div className="dashboard resources">
