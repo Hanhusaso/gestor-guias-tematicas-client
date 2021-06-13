@@ -5,10 +5,10 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 import { Icon } from "semantic-ui-react";
 import { getMeApi } from "../../api/user";
-import UserSidebar from "../../components/Dashboard/User/Sidebar/UserSideBar";
+import UserSidebar from "../../components/Dashboard/Sidebar/UserSideBar";
 
-import NuevaGuia from "../../components/Dashboard/OptionsSidebar/NuevaGuia/nuevaGuia";
-import Guias from '../../components/Dashboard/OptionsSidebar/Guias/guias';
+import NuevaGuia from "../../components/Dashboard/Sidebar/OptionsSidebar/NuevaGuia/nuevaGuia";
+import Guias from '../../components/Dashboard/Sidebar/OptionsSidebar/Guias/Guias';
 
 function dashboard() {
     const [user, setUser] = useState(undefined);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { List, Image, Icon } from "semantic-ui-react";
-import useAuth from "../../../../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import Link from 'next/link';
 
 export default function UserSidebar(props) {

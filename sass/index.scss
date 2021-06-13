@@ -9,9 +9,9 @@
 @import "../pages/login.scss";
 
 //content
-@import "../components/Dashboard/User/Sidebar/UserSidebar/UserSideBar.scss";
-@import "../components/Dashboard/Content/NuevaGuia/nuevaGuia.scss";
-@import "../components/Dashboard/Content/Guias/Guias.scss";
+@import "../components/Dashboard/Sidebar/UserSideBar.scss";
+@import "../components/Dashboard/Sidebar/OptionsSidebar/NuevaGuia/nuevaGuia.scss";
+@import "../components/Dashboard/Sidebar/OptionsSidebar/Guias/Guias.scss";
 @import "../pages/dashboard/guias/recursos.scss";
 
 //modals

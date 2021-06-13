@@ -6,7 +6,7 @@ import classNames from "classnames";
 import { Icon, Button } from "semantic-ui-react";
 import { getMeApi } from "../../../api/user";
 import { getGuiaXUrlApi } from '../../../api/guia';
-import UserSidebar from "../../../components/Dashboard/User/Sidebar/UserSideBar";
+import UserSidebar from "../../../components/Dashboard/Sidebar/UserSideBar";
 import Colections from '../../../components/Dashboard/Colections';
 import MenuSlider from '../../../components/Dashboard/MenuSlider/MenuSlider';
 

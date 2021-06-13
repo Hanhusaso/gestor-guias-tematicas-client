@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Label, Menu, Table, Loader } from 'semantic-ui-react'
 import { useRouter } from "next/router";
-import useAuth from "../../../../hooks/useAuth";
+import useAuth from "../../../../../hooks/useAuth";
 import { map, size } from "lodash";
 import { Icon } from "semantic-ui-react";
-import { getMeApi } from "../../../../api/user";
-import { getGuiasApi} from '../../../../api/guia';
+import { getMeApi } from "../../../../../api/user";
+import { getGuiasApi} from '../../../../../api/guia';
 import Link from 'next/link';
-import DeleteModal from '../../Modal/DeleteModal';
+import DeleteModal from '../../../Modal/DeleteModal';
 
 const limitPerPage = 50;
 
