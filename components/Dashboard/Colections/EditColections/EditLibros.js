@@ -7,7 +7,7 @@ import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
 import FormikControl from '../../../FormikControls/FormikControl';
 import TextError from '../../../FormikControls/TextError'
 
-export default function ColeccionLibros(props) {
+export default function EditLibros(props) {
 
     const {edit, setEdit} = props;
     const closeEdit = () => setEdit(false);

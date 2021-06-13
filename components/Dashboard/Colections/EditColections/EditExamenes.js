@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
 
 
-export default function EditarColeccionExamenes(props) {
+export default function EditExamenes(props) {
 
     const {edit, setEdit} = props;
     const closeEdit = () => setEdit(false);

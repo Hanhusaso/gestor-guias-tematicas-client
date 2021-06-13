@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
-import ColeccionLibros from '../../Dashboard/Content/Libros/ColeccionLibros';
-import EditarColeccionLibros from '../../Dashboard/Content/Libros/EditarColeccionLibros';
+import EditLibros from '../../Dashboard/Colections/EditColections/EditLibros';
 import ColectionsList from './Colectionslist';
 
 export default function Colections(props) {
@@ -18,7 +17,7 @@ export default function Colections(props) {
             ): null}
             
             {showEdit == true ? (
-                <EditarColeccionLibros edit = {showEdit} setEdit = {setShowEdit} />
+                <EditLibros edit = {showEdit} setEdit = {setShowEdit} />
             ): null}
         </div>
     )

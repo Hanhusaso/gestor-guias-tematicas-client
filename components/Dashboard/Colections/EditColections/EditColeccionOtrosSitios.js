@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
 
 
-export default function EditarColeccionPeriodicas(props) {
+export default function EditOtrosSitios(props) {
 
     const {edit, setEdit} = props;
     const closeEdit = () => setEdit(false);
@@ -11,7 +11,7 @@ export default function EditarColeccionPeriodicas(props) {
         <div className="colections padding-top-46 container-30">
             <div className="d-flex">
                 <Icon name="angle left pointer" size='large' onClick={closeEdit} />
-                <h3 className="m-0">Editar Coleccion Periodicas</h3>
+                <h3 className="m-0">Editar Coleccion Otros sitios</h3>
             </div>
         </div>
     )
