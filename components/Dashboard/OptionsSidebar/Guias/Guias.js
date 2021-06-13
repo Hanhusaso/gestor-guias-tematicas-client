@@ -23,8 +23,7 @@ function Guias() {
     const [showModalGuia, setShowModalGuia] = useState(false);
     const openShowModalGuia = () => { setShowModalGuia(true)}
 
-    const router = useRouter();
-    
+    const router = useRouter();   
 
     useEffect(() => {
         (async () => {
