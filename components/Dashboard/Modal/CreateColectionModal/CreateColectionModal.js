@@ -1,14 +1,16 @@
-import {Modal, Icon, Header} from 'semantic-ui-react'
+import {Modal, Icon, Header, Loader} from 'semantic-ui-react'
 import { useFormik } from 'formik';
 import { useRouter } from "next/router";
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
 import FormikControl from '../../../FormikControls/FormikControl';
 import {createColectionLibroApi} from '../../../../api/libro';
+import React, { useState, useEffect } from 'react'
 
 export default function CreateColectionModal(props){
     
-    const {show, setShow} = props;
+    const {show, setShow, tipoRecurso, guia, setLoading} = props;
+    const [loadingCreate, setLoadingCreate] = useState(false);
 
     const onClose = () => setShow(false);
 
@@ -17,15 +19,20 @@ export default function CreateColectionModal(props){
     }
 
     const onSubmit = async (values) => {
+        setLoadingCreate(true);
         console.log(values);
         const guiaSeleccionada = {
-            guia: parseInt(2)
+            recurso: tipoRecurso,
+            guia: guia
         };
 
-        const unidos = Object.assign(values,guiaSeleccionada);
-        console.log(unidos);
+        const coleccionNueva = Object.assign(values,guiaSeleccionada);
+        console.log(coleccionNueva);
 
-        // createColectionLibroApi(unidos);
+        createColectionLibroApi(coleccionNueva);
+        setLoading(true);
+        setShow(false);
+        setLoadingCreate(false);
     }
 
     const validationSchema = Yup.object({
@@ -61,8 +68,13 @@ export default function CreateColectionModal(props){
                                                     label='Nombre de la colección:' 
                                                     name='nombre'
                                                 />
-                                                    
-                                                <button type="submit" className="form__button">Crear</button>
+                                                {
+                                                    loadingCreate
+                                                    ?
+                                                    <Loader active inline='centered' size='huge' className="loading-center" />
+                                                    :
+                                                    <button type="submit" className="form__button">Crear</button>
+                                                }
                                             </div>
                                             
                                         </div>

@@ -16,13 +16,14 @@ function Recursos() {
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const  ruta = useRouter();
-
+    // const [realoadGuia, setRealoadGuia] = useState(false);
 
     useEffect(() => {
         (async () => {
             const { recursos} = ruta.query;
             const response = await getGuiaXUrlApi(recursos);
             setGuia(response);
+            // setRealoadGuia(false);
             // console.log();
         })();
     })
@@ -58,6 +59,7 @@ function Recursos() {
         (async () => {
           const response = await getMeApi(logout);
           setUser(response || null);
+          console.log
         })();
     }, [auth]);
 

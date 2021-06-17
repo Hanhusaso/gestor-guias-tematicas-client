@@ -5,6 +5,7 @@ import { size } from "lodash";
 import { getColeccionesGuiaApi } from '../../../api/coleccion';
 import CreateColectionModal from '../Modal/CreateColectionModal';
 import DeleteModal from '../Modal/DeleteModal';
+import { getOneGuia } from '../../../api/guia';
 
 export default function ColectionsList(props) {
 
@@ -12,20 +13,26 @@ export default function ColectionsList(props) {
     const [colecciones, setColeciones] = useState([]);
     const [idLibro, setIdLibro] = useState(undefined);
     const [loading, setLoading] = useState(true);
+    const [guia, setGuia] = useState([]);
     const openEdit = () => setEdit(true);
 
     const [showModal, setShowModalLibro] = React.useState(false);
     const openShowModalLibro = () => { setShowModalLibro(true)}
 
     const [showModalDelete, setShowModalLibroDelete] = React.useState(false);
+    // const [alejoNoJodas, setAlejoNoJodas] = useState(false);
     // const openShowModalLibroDelete = () => { }
     
     useEffect(() => {
         (async () => {
-            // console.log("idGuia",idGuia);
+            // console.log("idGuiaaaaa",idGuia);
             // console.log(tipoRecurso);
             const response = await getColeccionesGuiaApi(tipoRecurso,idGuia);
+            const responseGuia = await getOneGuia(idGuia);
             setColeciones(response);
+            setGuia(responseGuia);
+            console.log("response guia",responseGuia)
+            // setAlejoNoJodas(false);
             return () => {setLoading(false);}
         })();
     });
@@ -59,7 +66,7 @@ export default function ColectionsList(props) {
                 }
             </div>
 
-            <CreateColectionModal show = {showModal} setShow={setShowModalLibro} />
+            <CreateColectionModal show = {showModal} setShow={setShowModalLibro} tipoRecurso={tipoRecurso} guia={guia} setLoading={setLoading}/>
 
             <DeleteModal show = {showModalDelete} setShow={setShowModalLibroDelete} tipo="libro" idDelete={idLibro} setLoading={setLoading} />
         </div>
