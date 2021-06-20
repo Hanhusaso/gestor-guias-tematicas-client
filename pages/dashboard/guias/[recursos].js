@@ -16,17 +16,17 @@ function Recursos() {
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const  ruta = useRouter();
-    // const [realoadGuia, setRealoadGuia] = useState(false);
+    const [realoadGuia, setRealoadGuia] = useState(false);
 
     useEffect(() => {
         (async () => {
             const { recursos} = ruta.query;
             const response = await getGuiaXUrlApi(recursos);
             setGuia(response);
-            // setRealoadGuia(false);
-            // console.log();
+            setRealoadGuia(false);
+            console.log("recursos",response);
         })();
-    })
+    }, [realoadGuia])
 
     
     const changeTabs1 = () => {
@@ -59,7 +59,6 @@ function Recursos() {
         (async () => {
           const response = await getMeApi(logout);
           setUser(response || null);
-          console.log
         })();
     }, [auth]);
 
@@ -71,7 +70,7 @@ function Recursos() {
             <div className="dashboard__content">
             
             <Menu className="container-46 padding-bottom-30 padding-top-46">
-                    <h3 className="title">GUÍA 001: {guia? guia[0].nombre : 'Hansini'}</h3>
+                    <h3 className="title">GUÍA 001: {guia? guia[0].nombre : ''}</h3>
                     {/* <Button primary>Primary</Button> */}
             </Menu>
 

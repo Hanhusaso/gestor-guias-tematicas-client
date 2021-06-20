@@ -77,9 +77,7 @@ function Guias() {
                                     )
                                 }
                                 <Table.Cell>{guia.nombre}</Table.Cell>
-                                {/* <Table.Cell>{guia.estado}</Table.Cell> */}
                                 <Table.Cell>{guia.usuario.username}</Table.Cell>
-                                {/* <Table.Cell>{guia.usuario.username}</Table.Cell> */}
                                 <Table.Cell > 
                                     <Link href={`/dashboard/guias/${guia.url}`}>
                                         <Icon name="edit outline" className="pointer" size='large'></Icon>

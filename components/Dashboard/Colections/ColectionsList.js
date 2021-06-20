@@ -1,41 +1,50 @@
 import React, { useState, useEffect } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
+import { List, Image, Icon, Modal, Button, Header, Loader } from "semantic-ui-react";
 import { size } from "lodash";
 import { getColeccionesGuiaApi } from '../../../api/coleccion';
 import CreateColectionModal from '../Modal/CreateColectionModal';
 import DeleteModal from '../Modal/DeleteModal';
 import { getOneGuia } from '../../../api/guia';
+import { useRouter } from "next/router";
 
 export default function ColectionsList(props) {
 
     const {idGuia, edit, setEdit, tipoRecurso} = props;
     const [colecciones, setColeciones] = useState([]);
     const [idLibro, setIdLibro] = useState(undefined);
+    const [mensaje, setMensaje] = useState("");
     const [loading, setLoading] = useState(true);
     const [guia, setGuia] = useState([]);
     const openEdit = () => setEdit(true);
-
     const [showModal, setShowModalLibro] = React.useState(false);
     const openShowModalLibro = () => { setShowModalLibro(true)}
 
     const [showModalDelete, setShowModalLibroDelete] = React.useState(false);
-    // const [alejoNoJodas, setAlejoNoJodas] = useState(false);
+    const [alejoNoJodas, setAlejoNoJodas] = useState(false);
     // const openShowModalLibroDelete = () => { }
-    
+
     useEffect(() => {
         (async () => {
-            // console.log("idGuiaaaaa",idGuia);
-            // console.log(tipoRecurso);
+            // "60c5d66998d32c1d14b9a35e"
             const response = await getColeccionesGuiaApi(tipoRecurso,idGuia);
             const responseGuia = await getOneGuia(idGuia);
             setColeciones(response);
             setGuia(responseGuia);
-            console.log("response guia",responseGuia)
-            // setAlejoNoJodas(false);
-            return () => {setLoading(false);}
+
+            if(idGuia){
+                setAlejoNoJodas(false);
+                setTimeout(()=>{
+                    setMensaje("No hay colecciones");
+                }, 500)
+            }else{
+                setAlejoNoJodas(true);
+            }
+            setLoading(false);
+            console.log("colecciones", colecciones);
+            // return () => {setLoading(false);}
         })();
-    });
+    }, [alejoNoJodas, loading]);
 
 
     return (
@@ -46,16 +55,18 @@ export default function ColectionsList(props) {
             </div>
 
             <div className="colections__content container-30 padding-top-46">
-                {colecciones && size(colecciones) === 0 && (
-                    <div>
-                        <h3>No hay colecciones</h3>
-                    </div>
-                )}
-                { size(colecciones) > 0 &&
+                {loading || idGuia === "" ?
+                    <Loader active inline='centered' size='huge' />
+                : null}
+                {   colecciones && idGuia !== "" && size(colecciones) === 0 && !loading  ?  
+                        mensaje
+                    : null
+                }
+                { size(colecciones) > 0 && !loading &&
                     colecciones.map((coleccion, index) =>(
-                        <div className="colections__content__element padding-bottom-25">
+                        <div key={index} className="colections__content__element padding-bottom-25">
                             <div className="colections__content__element__box container-46">
-                                <h3 key={index} className="m-0">{coleccion.nombre}</h3>
+                                <h3 className="m-0">{coleccion.nombre}</h3>
                                 <div className="colections__content__element__box__button" onClick={openEdit}>
                                     Editar
                                 </div>
