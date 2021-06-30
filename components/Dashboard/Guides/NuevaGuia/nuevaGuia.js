@@ -50,11 +50,12 @@ function NuevaGuia(props) {
     const onSubmit = async (values) => {
         setLoadingNewGuias(true);
         values.url = (((limpiarAcentos(values.nombre)).toLowerCase()).replace(/[^a-zA-Z0-9 ]/g, '')).replace(/ /g, '-');
-        createGuiasApi(values);
-        const ultimaGuia = await getLastGuiaApi();
-        console.log(ultimaGuia[0].url);
+        const ultimaGuia = await createGuiasApi(values);
+        // console.log(ultimaGuia);
+        // const ultimaGuia = await getLastGuiaApi();
+        // console.log(ultimaGuia[0].url);
         setLoadingNewGuias(false);
-        router.replace(`/dashboard/guias/${ultimaGuia[0].url}`);
+        router.replace(`/dashboard/guias/${ultimaGuia.url}`);
     }
 
     const validationSchema = Yup.object({

@@ -14,7 +14,7 @@ export async function createRecursosApi(formData){
         console.log("dentro", formData);
         const response = await fetch(url, params);
         const result = response.json();
-        toast.success(`Recursos creados`);
+        toast.success(`Recursos guardados correctamente`);
         return result;
     } catch (error) {
         
