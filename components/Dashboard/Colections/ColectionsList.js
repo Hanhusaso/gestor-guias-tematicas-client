@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 export default function ColectionsList(props) {
 
-    const {idGuia, edit, setEdit, tipoRecurso} = props;
+    const {idGuia, edit, setEdit, tipoRecurso, setListaColeccion} = props;
     const [colecciones, setColeciones] = useState([]);
     const [idLibro, setIdLibro] = useState(undefined);
     const [mensaje, setMensaje] = useState("");
@@ -67,7 +67,7 @@ export default function ColectionsList(props) {
                         <div key={index} className="colections__content__element padding-bottom-25">
                             <div className="colections__content__element__box container-46">
                                 <h3 className="m-0">{coleccion.nombre}</h3>
-                                <div className="colections__content__element__box__button" onClick={openEdit}>
+                                <div className="colections__content__element__box__button" onClick={ () => {setEdit(true), setListaColeccion(colecciones[index])}}>
                                     Editar
                                 </div>
                             </div>

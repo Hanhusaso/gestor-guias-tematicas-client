@@ -80,7 +80,7 @@ function Recursos() {
                 <MenuSlider tabsp={tabs} setTabsp={setTabs}/>
 
                         {tabs == 1 ? (
-                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Libros"/>
+                            <Colections idGuia = { guia? guia[0]._id:""} tipoRecurso="Libros" listaGuia={ guia? guia : ""}/>
                         ): null}
 
                         {tabs == 2 ? (

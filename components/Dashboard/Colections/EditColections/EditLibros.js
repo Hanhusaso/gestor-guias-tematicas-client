@@ -6,19 +6,32 @@ import * as Yup from 'yup';
 import { List, Image, Icon, Modal, Button, Header } from "semantic-ui-react";
 import FormikControl from '../../../FormikControls/FormikControl';
 import TextError from '../../../FormikControls/TextError'
+import { updateColeccionesApi } from '../../../../api/coleccion';
+import { createRecursosApi, getRecursosApi } from '../../../../api/recurso';
+import { create } from 'lodash';
 
 export default function EditLibros(props) {
 
-    const {edit, setEdit} = props;
+    const {edit, setEdit, listaGuia, listaColeccion, setListaColeccion} = props;
     const closeEdit = () => setEdit(false);
+    const [loading, setLoading] = useState(true);
+    const [listaRecursos, setListaRecursos] = useState(undefined);
 
-    // const [recursos, setRecursos] = useState([
-    //     {titulo: '', enlace: ''}
-    // ]);
-
+    useEffect(() => {
+        (async () => {
+          const response = await getRecursosApi();
+          setListaRecursos(response);
+          if(listaRecursos){
+            console.log("lista recursos",listaRecursos);
+            console.log(listaRecursos[0].titulo);
+          }
+        })();
+        setLoading(false);
+    }, [loading]);
+    
     const initialValues = {
-        nombre: '',
-        descripcion: '',
+        nombre: listaColeccion.nombre,
+        descripcion: listaColeccion.descripcion,
         
         recurso: [{
             titulo: '',
@@ -29,8 +42,6 @@ export default function EditLibros(props) {
             fecha: null,
         }],
         
-        
-        // tipo: '',
     }
 
     const tipos = [
@@ -41,9 +52,31 @@ export default function EditLibros(props) {
     ]
 
 
-    const onSubmit = (values) => {
-        console.log('Form data', values)
-        // console.log("purbea")
+    const onSubmit = async (values) => {
+        // console.log('Form data', values)
+        // console.log("lista guia", listaGuia);
+        // console.log("lista coleccion", listaColeccion);
+        // console.log(listaColeccion._id);
+        const actualizaColeccion = {
+            nombre: values.nombre,
+            descripcion: values.descripcion
+        }
+
+        await updateColeccionesApi(listaColeccion._id, actualizaColeccion);
+        const creaRecursos = values;
+        delete creaRecursos.nombre;
+        delete creaRecursos.descripcion;
+        
+
+        creaRecursos.recurso.map( async (recurso, index)=>{
+            creaRecursos.recurso[index].coleccion = listaColeccion;
+            delete creaRecursos.recurso[index].coleccion.guia;
+            creaRecursos.recurso[index].coleccion.guia = listaGuia[0].id;
+            await createRecursosApi(creaRecursos.recurso[index]);
+        })
+
+        setEdit(false);
+        // console.log(prueba);
     }
 
     const validationSchema = Yup.object({
@@ -66,13 +99,12 @@ export default function EditLibros(props) {
         validationSchema
     })
 
-
     return (
         <div className="colections padding-top-46 container-30">
             {/* <button>Regresar</button> */}
             <div className="d-flex">
                 <Icon name="angle left pointer" size='large' onClick={closeEdit} />
-                <h3 className="m-0">Fondo Editorial</h3>
+                <h3 className="m-0">{listaColeccion.nombre}</h3>
             </div>
 
             <Formik 
@@ -106,7 +138,7 @@ export default function EditLibros(props) {
 
                             </div>                        
                                 
-                                <FieldArray name='recurso'>
+                            <FieldArray name='recurso'>
                                 {fieldArrayProps => {
                                     // console.log('fieldArray', fieldArrayProps)
                                     const {push, remove, form} = fieldArrayProps
