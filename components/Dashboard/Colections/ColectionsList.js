@@ -21,7 +21,7 @@ export default function ColectionsList(props) {
     const openShowModalLibro = () => { setShowModalLibro(true)}
 
     const [showModalDelete, setShowModalLibroDelete] = React.useState(false);
-    const [alejoNoJodas, setAlejoNoJodas] = useState(false);
+    const [loadingGuia, setLoadingGuia] = useState(false);
     // const openShowModalLibroDelete = () => { }
 
     useEffect(() => {
@@ -33,18 +33,18 @@ export default function ColectionsList(props) {
             setGuia(responseGuia);
 
             if(idGuia){
-                setAlejoNoJodas(false);
+                setLoadingGuia(false);
                 setTimeout(()=>{
                     setMensaje("No hay colecciones");
                 }, 500)
             }else{
-                setAlejoNoJodas(true);
+                setLoadingGuia(true);
             }
             setLoading(false);
             console.log("colecciones", colecciones);
             // return () => {setLoading(false);}
         })();
-    }, [alejoNoJodas, loading]);
+    }, [loadingGuia, loading]);
 
 
     return (
