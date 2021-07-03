@@ -79,7 +79,7 @@ export default function ColectionsList(props) {
 
             <CreateColectionModal show = {showModal} setShow={setShowModalLibro} tipoRecurso={tipoRecurso} guia={guia} setLoading={setLoading}/>
 
-            <DeleteModal show = {showModalDelete} setShow={setShowModalLibroDelete} tipo="libro" idDelete={idLibro} setLoading={setLoading} />
+            <DeleteModal show = {showModalDelete} setShow={setShowModalLibroDelete} tipo="recurso" idDelete={idLibro} setLoading={setLoading} />
         </div>
     )
 }

@@ -28,7 +28,6 @@ function Guias() {
     useEffect(() => {
         (async () => {
           const response = await getGuiasApi(limitPerPage,0);
-        //   console.log(response);
           setGuias(response);
           setLoading(false);
         })();

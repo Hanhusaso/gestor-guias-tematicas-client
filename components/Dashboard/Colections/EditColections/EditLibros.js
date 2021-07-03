@@ -15,16 +15,18 @@ export default function EditLibros(props) {
     const {edit, setEdit, listaGuia, listaColeccion, setListaColeccion} = props;
     const closeEdit = () => setEdit(false);
     const [loading, setLoading] = useState(true);
-    const [listaRecursos, setListaRecursos] = useState(undefined);
+    const [listaRecursos, setListaRecursos] = useState([]);
 
     useEffect(() => {
         (async () => {
           const response = await getRecursosApi();
           setListaRecursos(response);
-          if(listaRecursos){
-            console.log("lista recursos",listaRecursos);
-            console.log(listaRecursos[0].titulo);
-          }
+          console.log(response);
+          console.log("lista",listaRecursos);
+        //   if(listaRecursos){
+        //     console.log("lista recursos",listaRecursos);
+        //     // console.log(listaRecursos[0].titulo);
+        //   }
         })();
         setLoading(false);
     }, [loading]);
@@ -32,7 +34,6 @@ export default function EditLibros(props) {
     const initialValues = {
         nombre: listaColeccion.nombre,
         descripcion: listaColeccion.descripcion,
-        
         recurso: [{
             titulo: '',
             enlace: '',

@@ -1,7 +1,8 @@
 import { toast } from 'react-toastify';
 import {Modal, Icon, Header, Button, Loader} from 'semantic-ui-react'
 import { deleteGuiaApi } from '../../../../api/guia';
-import { deleteLibroApi } from '../../../../api/libro';
+import { deleteColeccionApi, getTodasColeccionesPorGuia } from '../../../../api/coleccion';
+import { getTodosRecursosPorColeccion, deleteRecursoApi } from '../../../../api/recurso';
 import React, { useState, useEffect } from 'react'
 
 export default function DeleteModal(props){
@@ -15,12 +16,27 @@ export default function DeleteModal(props){
         setLoadingDelete(true);
         console.log(tipo);
         console.log(id);
+        var recurso;
         switch(tipo){
             case 'guia':
+                const colecciones = await getTodasColeccionesPorGuia(id)
+                colecciones.map( async (coleccion, index) =>(
+                    recurso = await getTodosRecursosPorColeccion(coleccion.id),
+                    recurso.map( async (rec, index) =>(
+                        await deleteRecursoApi(rec.id)    
+                    ))
+                )) 
+                colecciones.map( async (coleccion, index) =>( 
+                    await deleteColeccionApi(coleccion.id)
+                ))
                 await deleteGuiaApi(id);
                 break;
-            case 'libro':
-                await deleteLibroApi(id);
+            case 'recurso':
+                const recursos = await getTodosRecursosPorColeccion(id);
+                recursos.map( async (recurso,index) => (
+                    await deleteRecursoApi(recurso.id)
+                ))
+                await deleteColeccionApi(id);
                 break;
             default: break;
         }

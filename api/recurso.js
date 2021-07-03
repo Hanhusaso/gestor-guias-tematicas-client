@@ -32,3 +32,32 @@ export async function getRecursosApi(){
         return null;
     }
 }
+
+export async function getTodosRecursosPorColeccion(idColeccion){
+    try {
+        const url = `${BASE_PATH}/recursos?coleccion.id=${idColeccion}`;
+        const response = await fetch(url);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        // console.log(error);
+        return null;
+    }
+}
+
+export async function deleteRecursoApi(idRecurso) {
+    try {
+        const url = `${BASE_PATH}/recursos/${idRecurso}`;
+        const params = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        const result = fetch(url, params);
+        return result;
+    } catch (error) {
+    //   console.log(error);
+      return null;
+    }
+}

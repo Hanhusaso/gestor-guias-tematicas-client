@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup';
 import FormikControl from '../../../FormikControls/FormikControl';
-import {createColectionLibroApi} from '../../../../api/libro';
+import {createColeccionApi} from '../../../../api/coleccion';
 import React, { useState, useEffect } from 'react'
 
 export default function CreateColectionModal(props){
@@ -29,7 +29,7 @@ export default function CreateColectionModal(props){
         const coleccionNueva = Object.assign(values,guiaSeleccionada);
         console.log(coleccionNueva);
 
-        createColectionLibroApi(coleccionNueva);
+        createColeccionApi(coleccionNueva);
         setLoading(true);
         setShow(false);
         setLoadingCreate(false);
