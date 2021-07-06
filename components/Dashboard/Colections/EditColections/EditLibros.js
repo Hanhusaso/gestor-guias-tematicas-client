@@ -12,28 +12,29 @@ import { create } from 'lodash';
 
 export default function EditLibros(props) {
 
-    const {edit, setEdit, listaGuia, listaColeccion, setListaColeccion} = props;
+    const {edit, setEdit, listaGuia, listaColeccion, setListaColeccion, listaRecursosDeColeccion} = props;
     const closeEdit = () => setEdit(false);
     const [loading, setLoading] = useState(true);
-    const [listaRecursos, setListaRecursos] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-          const response = await getRecursosApi();
-          setListaRecursos(response);
-          console.log(response);
-          console.log("lista",listaRecursos);
-        //   if(listaRecursos){
-        //     console.log("lista recursos",listaRecursos);
-        //     // console.log(listaRecursos[0].titulo);
-        //   }
-        })();
-        setLoading(false);
-    }, [loading]);
+    // useEffect(() => {
+    //     (async () => {
+    //       const response = await getRecursosApi();
+    //       setListaRecursos(response);
+    //       console.log(response);
+    //       console.log("lista",listaRecursos);
+    //       if(listaRecursos){
+    //         console.log("lista recursos",listaRecursos);
+    //         // console.log(listaRecursos[0].titulo);
+    //       }
+    //     })();
+    //     setLoading(false);
+    // }, [loading]);
+    console.log("Recurso en editar", listaRecursosDeColeccion[0].titulo)
     
     const initialValues = {
         nombre: listaColeccion.nombre,
         descripcion: listaColeccion.descripcion,
+        
         recurso: [{
             titulo: '',
             enlace: '',
@@ -42,7 +43,12 @@ export default function EditLibros(props) {
             tipo: '',
             fecha: null,
         }],
-        
+
+        // if(listaRecursosDeColeccion){
+        //     listaRecursosDeColeccion.map((recurso,index) =>{
+        //         recurso[index].titulo = recurso.titulo
+        //     })
+        // }
     }
 
     const tipos = [

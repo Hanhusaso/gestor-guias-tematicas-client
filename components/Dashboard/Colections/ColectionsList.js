@@ -6,11 +6,12 @@ import { getColeccionesGuiaApi } from '../../../api/coleccion';
 import CreateColectionModal from '../Modal/CreateColectionModal';
 import DeleteModal from '../Modal/DeleteModal';
 import { getOneGuia } from '../../../api/guia';
+import { getTodosRecursosPorColeccion} from '../../../api/recurso';
 import { useRouter } from "next/router";
 
 export default function ColectionsList(props) {
 
-    const {idGuia, edit, setEdit, tipoRecurso, setListaColeccion} = props;
+    const {idGuia, edit, setEdit, tipoRecurso, setListaColeccion, setListaRecursosDeColeccion} = props;
     const [colecciones, setColeciones] = useState([]);
     const [idLibro, setIdLibro] = useState(undefined);
     const [mensaje, setMensaje] = useState("");
@@ -46,6 +47,15 @@ export default function ColectionsList(props) {
         })();
     }, [loadingGuia, loading]);
 
+    const funcionPrueba = async (coleccion) => {
+        console.log("coleccion new", coleccion);
+        setListaColeccion(coleccion);
+        const recursos = await getTodosRecursosPorColeccion(coleccion.id);
+        setListaRecursosDeColeccion(recursos);
+        console.log("recursos new", recursos);
+        setEdit(true);
+    }
+
 
     return (
         <div className="colections padding-top-46">
@@ -67,7 +77,7 @@ export default function ColectionsList(props) {
                         <div key={index} className="colections__content__element padding-bottom-25">
                             <div className="colections__content__element__box container-46">
                                 <h3 className="m-0">{coleccion.nombre}</h3>
-                                <div className="colections__content__element__box__button" onClick={ () => {setEdit(true), setListaColeccion(colecciones[index])}}>
+                                <div className="colections__content__element__box__button" onClick={ () => {funcionPrueba(colecciones[index])}}>
                                     Editar
                                 </div>
                             </div>
