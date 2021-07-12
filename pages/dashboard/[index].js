@@ -15,8 +15,7 @@ function dashboard() {
     const { auth, logout, setReloadUser } = useAuth();
     const [tabs, setTabs] = useState(1);
     const router = useRouter();
-    const ruta = useRouter();
-    console.log(ruta.query.index);
+    // console.log(router.kquery.index);
 
     useEffect(() => {
         (async () => {
@@ -40,15 +39,15 @@ function dashboard() {
 
     return (
         <div className="dashboard">
-            <UserSidebar ruta = {ruta.query.index} />
+            <UserSidebar router = {router.query} />
 
             <div className="dashboard__content">
-                
-                {ruta.query.index == "guias" ? (
+            
+                {router.query.index == "guias" ? (
                     <Guias />
                 ): null}
 
-                {ruta.query.index == "crear-guia" ? (
+                {router.query.index == "crear-guia" ? (
                      <NuevaGuia auth={auth}/>
                 ): null}
 
